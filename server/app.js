@@ -2,9 +2,10 @@
 let express = require('express');
 let orm = require('orm');
 let app = express();
-let bodyPaser = require('body-parser');
+let bodyParser = require('body-parser');
 let path = require('path');
-let urlencodedParser = bodyPaser.urlencoded({extended: true});
+let jsonParser = bodyParser.json;
+let urlencodedParser = bodyParser.urlencoded({extended: true});
 let appRoot = path.join(__dirname, '/');
 //cookie的设置
 let session = require("express-session");
@@ -37,15 +38,11 @@ app.use(orm.express(`sqlite:///home/zl/sqlites/manage`, {
         models.News=db.define("news",{
             title:String,
             content:String,
-            picture:String,
-            video:String,
             date:String
         });
         models.Blogs=db.define("blogs",{
             title:String,
             content:String,
-            picture:String,
-            video:String,
             date:String
         });
         next();
@@ -66,6 +63,18 @@ app.get('/manage/blogs',urlencodedParser,function (req,res) {
     let blogs = require('./getAllBlogs');
     blogs.getAllBlogs(req,res);
 });
+app.post('/imageUplode', function (req, res) {
+
+});
+app.post('article', jsonParser, function (req, res) {
+    
+    if (req.query.type === 'new') {
+        req.models.News.create({ title : req.body.title, content : req.body.content, date : })
+    }
+    if (req.query.type === 'blog') {
+
+    }
+})
 var server = app.listen(8081, function () {
     var host = server.address().address;
     var port = server.address().port;
