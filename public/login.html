@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+    <script src="./jquery-3.2.1.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="js/login.js"></script>
+
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="stylesheet/login.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="header">
+        <div class="toolbar">
+            <div class="row">
+                <div class="col-md-2 col-xs-4 fr">
+                    <button><span class="glyphicon glyphicon-user"></span>   sign in</button>
+                </div>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="row">
+                <div class="col-md-3 col-xs-5"><h1>LATEST NEWS</h1></div>
+                <div class="col-md-3 col-xs-5 fr">
+                    <h2><span class="glyphicon glyphicon-home"></span> Home / News</h2></div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div id="login_box" class="center-block">
+            <div class="row">
+                <input type="text" class="col-md-4 col-xs-10 center-block email" placeholder="email">
+            </div>
+            <div class="row">
+                <input class="col-md-4 col-xs-10 center-block password" placeholder="password">
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-xs-10 center-block">
+                    <input type="checkbox" class="remember_me">
+                    <label>remember me</label>
+                    <a href="#" target="_blank">forget password>>></a>
+                </div>
+            </div>
+            <div class="row">
+                <button class="col-md-4 col-xs-10 center-block" onclick="Login(),weather_set_cookie()">Login</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
