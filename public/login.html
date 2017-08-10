@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+    <script src="./jquery-3.2.1.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="js/login.js"></script>
+
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="stylesheet/login.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="header">
+        <div class="toolbar">
+            <div class="row">
+                <div class="col-md-2 col-xs-4 fr">
+                    <button><span class="glyphicon glyphicon-user"></span>   sign in</button>
+                </div>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="row">
+                <div class="col-md-3 col-xs-5"><h1>LATEST NEWS</h1></div>
+                <div class="col-md-3 col-xs-5 fr">
+                    <h2><span class="glyphicon glyphicon-home"></span> Home / News</h2></div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div id="login_box" class="center-block">
+            <div class="row">
+                <input type="text" class="col-md-4 col-xs-10 center-block email" placeholder="email">
+            </div>
+            <div class="row">
+                <input class="col-md-4 col-xs-10 center-block password" placeholder="password">
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-xs-10 center-block">
+                    <input type="checkbox" class="remember_me">
+                    <label>remember me</label>
+                    <a href="#" data-toggle="modal" data-target="#myModal">forget password>>></a>
+                </div>
+            </div>
+            <div class="row">
+                <button class="col-md-4 col-xs-10 center-block" onclick="Login(),weather_set_cookie()">Login</button>
+            </div>
+        </div>
+    </div>
+    <!--start 模态框 邮箱验证-->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">通过邮箱找回密码</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="email" aria-describedby="basic-addon2">
+                        <span class="input-group-addon" id="basic-addon2">@example.com</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Go</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end 模态框 邮箱验证-->
+</div>
+</body>
+</html>

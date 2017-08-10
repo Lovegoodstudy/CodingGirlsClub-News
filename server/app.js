@@ -6,6 +6,7 @@ let path = require('path');
 let urlencodedParser = bodyPaser.urlencoded({extended: true});
 let appRoot = path.join(__dirname, '/');
 
+
 app.all('*', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -13,6 +14,7 @@ app.all('*', function (req, res, next) {
     res.header("Content-Type", "application/json;charset=utf-8");
     next();
 });
+
 
 app.use(orm.express(`sqlite:///${appRoot}/codeGirlsClub.db`, {
     define: function (db, models, next) {
@@ -39,10 +41,12 @@ app.use(orm.express(`sqlite:///${appRoot}/codeGirlsClub.db`, {
             video : String,
             author: String,
             date: String
+
         });
         next();
     }
 }));
+
 
 app.get("/news",function (req, res) {
     let cnt = req.query.count;
@@ -77,4 +81,29 @@ app.get("/news",function (req, res) {
 
 app.listen(8081, function () {
     console.log("App is listening on port 8081!");
+});
+
+app.get('/',urlencodedParser,function (req,res){
+
+});
+app.post('/manage',urlencodedParser,function (req,res) {
+    let login = require('./login');
+    login.findLogin(req,res);
+});
+app.get('/manage/news',urlencodedParser,function (req,res) {
+    let news = require('./getAllNews');
+    news.getAllNews(req,res);
+});
+app.get('/manage/blogs',urlencodedParser,function (req,res) {
+    let blogs = require('./getAllBlogs');
+    blogs.getAllBlogs(req,res);
+});
+
+var articleRouter = require('./articleRouter');
+app.use('/article', articleRouter);
+
+var server = app.listen(8081, function () {
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log('Example app listening at http://%s:%s', host, port);
 });
