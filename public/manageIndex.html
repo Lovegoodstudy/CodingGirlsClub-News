@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta charset="UTF-8">
-    <title>管理员详情页</title>
-    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css">
-    <script src="bootstrap-3.3.7-dist/js/jquery-3.2.1.js"></script>
-    <script src="bootstrap-3.3.7-dist/layer/layer.js"></script>
-    <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
-    <script src="js/manageIndex.js"></script>
-    <link rel="stylesheet" href="css/manageIndexCss.css">
+<meta charset="UTF-8">
+<title>管理员详情页</title>
+<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+<script src="bootstrap-3.3.7-dist/js/jquery-3.2.1.js"></script>
+<script src="layer/layer.js"></script>
+<script src="layer/layui.js"></script>
+<script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script src="js/manageIndex.js"></script>
+<link rel="stylesheet" href="css/manageIndexCss.css">
+<link rel="stylesheet" href="layer/mobile/need/layer.css">
+<link rel="stylesheet" href="layer/css/layui.css">
 </head>
 <body>
 <div class="top-bar dark">
@@ -23,27 +25,60 @@
 <nav class="navbar navbar-default navbar-static-top yamm">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" style="max-height: 100%;display:inline-block;padding-top: 8px;" href="/">
+            <a class="navbar-brand" style="max-height: 100%;display:inline-block;padding-top: 8px;" href="#">
                 <img src="img/logo.png" alt="Cgc02" width="210" height="42"></a>
         </div>
         <div id="navbar" class="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li role="presentation" class="active"><a href="#">查看新闻</a></li>
-                <li><a href="#">查看博客</a></li>
-                <li><a href="#">新建新闻</a></li>
-                <li><a href="#">新建博客</a></li>
+                <li role="presentation" class="active"><a href="#seeNews" data-toggle="tab">查看新闻</a></li>
+                <li role="presentation"><a href="#seeBlogs" data-toggle="tab">查看博客</a></li>
+                <li><a href="addArticle.html">新建新闻/博客</a></li>
             </ul>
         </div>
     </div>
 </nav>
-<div class="container" id="displayartical">
-
+<!--<div class="page-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Add a article</h2>
+            </div>
+        </div>
+    </div>
+</div>-->
+<div class="container">
+    <div class="rows display">
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="seeNews">
+                <table class="layui-table" lay-skin="line">
+                    <tr>
+                        <td>标题</td>
+                        <td>作者及发表时间</td>
+                    </tr>
+                    <tbody id="newsList" class="newsList" lay-even="">
+                    </tbody>
+                </table>
+                <div id=displayNewsList class="displayNewslist" style="padding-left:70%"></div>
+            </div>
+            <div class="tab-pane fade" id="seeBlogs">
+                <table class="layui-table" lay-skin="line">
+                    <tr>
+                        <td>标题</td>
+                        <td>作者及发表时间</td>
+                    </tr>
+                    <tbody id="blogsList" class="blogList" lay-even="">
+                    </tbody>
+                </table>
+                <div id=displayBlogsList class="displayBlogsList" style="padding-left:70%"></div>
+            </div>
+        </div>
+    </div>
 </div>
 <div id="foot">
     <footer class="footer" id="footer">
         <div class="footer-bottom">
             <div class="container">
-      <span>© Coding Girls Club Copyright 2016 - 2017. All Right Reserved.</span>
+                <span>© Coding Girls Club Copyright 2016 - 2017. All Right Reserved.</span>
             </div>
         </div>
     </footer>

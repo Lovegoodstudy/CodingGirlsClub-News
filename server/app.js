@@ -9,16 +9,6 @@ let appRoot = path.join(__dirname, '/');
 //cookie的设置
 let session = require("express-session");
 let cookie = require("cookie-parser");
-app.configure(function() {
-    app.use(cookie());
-    app.use(session({
-        name: "final",
-        secret: "1234567",
-        cookie: {maxAge: 10000},   //过期时间 毫秒为单位
-        resave: true,        //每次触发后保存时间
-        rolling: true       // 最后一次触发后计时
-    }));
-});
 app.all('*', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -39,14 +29,16 @@ app.use(orm.express(`sqlite:///home/zl/sqlites/manage`, {
             content:String,
             picture:String,
             video:String,
-            date:String
+            date:String,
+            author:String
         });
         models.Blogs=db.define("blogs",{
             title:String,
             content:String,
             picture:String,
             video:String,
-            date:String
+            date:String,
+            author:String
         });
         next();
     }
@@ -71,3 +63,13 @@ var server = app.listen(8081, function () {
     var port = server.address().port;
     console.log('Example app listening at http://%s:%s', host, port);
 });
+/*app.configure(function() {
+ app.use(cookie());
+ app.use(session({
+ name: "final",
+ secret: "1234567",
+ cookie: {maxAge: 10000}, //过期时间 毫秒为单位
+ resave: true,        //每次触发后保存时间
+ rolling: true       // 最后一次触发后计时
+ }));
+ });*/
