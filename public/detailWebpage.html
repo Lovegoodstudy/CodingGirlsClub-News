@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>文章详细页面</title>
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/style.css">
+
+    <script src="./js/detailWebpage.js"></script>
+
+    <style>
+        body {
+            background-color: lightgrey;
+        }
+    </style>
+</head>
+<body id="detail">
+
+<div style="height: 60px">
+</div>
+<div class="container" id="movieContents" style="background-color: #efebeb">
+    <div class="row">
+        <!--封面图片-->
+        <div class="col-lg-3 col-md-3 col-sm-3" id="mainImage">
+        </div>
+        <!--详细信息-->
+        <div class="col-lg-4 col-md-4 col-sm-4" id="detailInfo">
+            <h1 id="movieName" style="font-style: oblique"><b></b></h1>
+            <br>
+            <small> 导演:</small>
+            <span id="directors"></span><br>
+            <small> 演员:</small>
+            <span id="actors"></span><br>
+            <small> 类型:</small>
+            <span id="type"></span><br>
+            <small> 上映日期:</small>
+            <span id="releasedTime"></span>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-1">
+            <hr align="right" style="width:2px;height:200px; " color="#ada9a9">
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4" id="commentsScore">
+            <h3 style="color: #007722">评分</h3>
+            <p style="text-align: left" class="grades"></p>
+        </div>
+    </div>
+    <!--剧情简介-->
+    <hr class="separateBeforeSummary">
+    <div class="row">
+        <h3>
+            <pre>   剧情简介</pre>
+        </h3>
+        <div class="caption" id="summary" style="padding: 20px">
+        </div>
+    </div>
+    <!--影评-->
+    <hr class="separateBeforeComments">
+    <div class="row">
+        <h3>
+            <pre>   影评</pre>
+        </h3>
+    </div>
+    <div class="row" id="comments">
+    </div>
+
+</div>
+</body>
+</html>
