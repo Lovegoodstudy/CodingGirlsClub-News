@@ -1,26 +1,12 @@
 let express = require('express');
 let orm = require('orm');
 let app = express();
-
-let bodyParser = require('body-parser');
-
-var jsonParser = bodyParser.json()
-let urlencodedParser = bodyParser.urlencoded({extended: true});
-
+let bodyPaser = require('body-parser');
 let path = require('path');
-let appRoot = path.join(__dirname, '/');//cookie的设置
-// let session = require("express-session");
-// let cookie = require("cookie-parser");
-// app.configure(function() {
-//     app.use(cookie());
-//     app.use(session({
-//         name: "final",
-//         secret: "1234567",
-//         cookie: {maxAge: 10000},   //过期时间 毫秒为单位
-//         resave: true,        //每次触发后保存时间
-//         rolling: true       // 最后一次触发后计时
-//     }));
-// });
+let urlencodedParser = bodyPaser.urlencoded({extended: true});
+let appRoot = path.join(__dirname, '/');
+
+
 app.all('*', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -28,29 +14,72 @@ app.all('*', function (req, res, next) {
     res.header("Content-Type", "application/json;charset=utf-8");
     next();
 });
-app.use(orm.express(`sqlite://${appRoot}database.db`, {
+
+
+app.use(orm.express(`sqlite:///${appRoot}/codeGirlsClub.db`, {
     define: function (db, models, next) {
-        models.Manage = db.define("manage", {
-            id:Number,
-            mangeName:String,
+        models.Manager = db.define("manager", {
+            id: Number,
+            nickname : String,
             password : String,
-            email:String
+            email : String
         });
-        models.News=db.define("news",{
+        models.News = db.define('news', {
             id : Number,
-            title:String,
-            content:String,
-            date:String
+            title : String,
+            content : String,
+            picture : String,
+            video : String,
+            author: String,
+            date: String
         });
-        models.Blogs=db.define("blogs",{
+        models.Blogs = db.define('blogs', {
             id : Number,
-            title:String,
-            content:String,
-            date:String
+            title : String,
+            content : String,
+            picture : String,
+            video : String,
+            author: String,
+            date: String
+
         });
         next();
     }
 }));
+
+
+app.get("/news",function (req, res) {
+    let cnt = req.query.count;
+    req.models.News.find(function (err, newsInfo) {
+        if(err) throw err;
+        newsInfo.sort(function(input_a,input_b) {
+            let a = input_a.date;
+            let b = input_b.date;
+            let arr_a = a.split('/');
+            let arr_b = b.split('/');
+            arr_a = arr_a.map(i => parseInt(i));
+            arr_b = arr_b.map(i => parseInt(i));
+            if (arr_a[0] !== arr_b[0]) {
+                return arr_b[0] - arr_a[0];
+            } else if (arr_a[1] !== arr_b[1]) {
+                return arr_b[1] - arr_a[1];
+            } else {
+                return arr_b[2] - arr_a[2];
+            }
+        });
+        if(cnt*6>newsInfo.length){
+            if(cnt*6-6===newsInfo.length){
+                res.status(400).send("没有数据可以返回了");
+            }else{
+                res.send(newsInfo.slice((cnt-1)*6,newsInfo.length));
+            }
+        }else{
+            res.send(newsInfo.slice((cnt-1)*6,(cnt-1)*6+6));
+        }
+    });
+});
+
+
 app.get('/',urlencodedParser,function (req,res){
 
 });

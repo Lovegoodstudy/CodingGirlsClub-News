@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    list-style: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.show_news{
+    width: 95%;
+    height: 500px;
+    margin: 0 auto;
+}
+.html{
+    margin-top: 3%;
+    height: 120px;
+    padding-left: 0;!important;
+    padding-right: 0;!important;
+}
+.html div{
+    float: left;
+}
+.html img{
+    width: 200px;
+    height: 120px;
+}
+
+.html .img{
+    width: auto;!important;
+}
+.html h3{
+    margin: 0;
+}
+.html p{
+    margin-bottom: 5px;
+    color: #636363;
+}
+.rectangle1{
+    border-radius: 15px;
+    position: relative;
+    background: #fafafa;
+    width: 50%;
+    margin: 30px auto;
+    height: 160px;
+    border: 1px solid #d6d6d6;
+    box-shadow: 2px 2px 2px #d6d6d6;
+    padding: 0 10px 20px 20px;
+}
+/*多出一行省略*/
+.rectangle1 .content{
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}
+/*小三角*/
+.rectangle1::before{
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-left: 13px solid #d6d6d6;
+    border-bottom: 13px solid transparent;
+    position:absolute;
+    top: 20px;
+    right: -14px;
+}
+.rectangle2{
+    border-radius: 15px;
+    position: relative;
+    background: #fafafa;
+    width: 50%;
+    height: 160px;
+    margin: 30px auto;
+    border: 1px solid #d6d6d6;
+    box-shadow: 2px 2px 2px #d6d6d6;
+    padding: 0 10px 20px 20px;
+}
+/*多出一行省略*/
+.rectangle2 .content{
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+}
+/*小三角*/
+.rectangle2::before{
+    content:"";
+    position: absolute;
+    right: 100%;
+    top: 30px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 13px solid #d6d6d6;
+    border-bottom: 13px solid transparent;
+}
+.rectangle3{
+    padding-left: 30%;
+}
+.rectangle3 p{
+    color: #23e3e5;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*图片*/
+.rectangle2::after{
+    content:"";
+    position: absolute;
+    right: 100%;
+    top: 20px;
+    left: -14%;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    background: url("../image/news.jpg") no-repeat -47px -65px;
+}
+.rectangle1::after{
+    content:"";
+    position: absolute;
+    top: 10px;
+    right: -14%;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    background: url("../image/news.jpg") no-repeat -47px -65px;
+}
+.time-line-content{
+    width: 10%;
+    float: left;
+}
+.time-line{
+    width: 50%;
+    float: right;
+    border-right: 5px solid #3fe5e0;
+}
+.time-line1{
+    width: 80.7%;
+    margin: 0 auto;
+    border-bottom: 5px solid #3fe5e0;
+}
+.time-line-content2{
+    width: 10%;
+    height: 1080px;
+    float: right;
+}
+.time-line2{
+    width: 51%;
+    border-left: 5px solid #3fe5e0;
+}
+#gotop{
+    display:none;
+    width:40px;
+    height:40px;
+    position:fixed;
+    right:32px;
+    bottom:50px;
+    background:url(../image/totop.png) no-repeat -76px -4px;
+}
+@media (max-width: 1024px) {
+    .html img{
+        margin-top: 5px;
+    }
+    .rectangle2::after{
+        content:"";
+        position: absolute;
+        right: 100%;
+        top: 20px;
+        left: -16%;
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        background: url("../image/news.jpg") no-repeat -47px -65px;
+    }
+    .rectangle1::after{
+        content:"";
+        position: absolute;
+        top: 10px;
+        right: -16%;
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        background: url("../image/news.jpg") no-repeat -47px -65px;
+    }
+}
+@media (max-width: 768px) {
+    .html img{
+        width: 130px;
+        height: 90px;
+    }
+    .col-md-5{
+        padding-right: 0;!important;
+    }
+    .col-md-6{
+        padding-right: 0;!important;
+    }
+    .rectangle2::after{
+        content:"";
+        width: 0;
+        height: 0;
+    }
+    .rectangle1::after{
+        content:"";
+        width: 0;
+        height: 0;
+    }
+}
+@media (max-width: 425px) {
+    .html{
+        margin-top: 8%;
+        height: 100px;
+        padding-left: 0;!important;
+        padding-right: 0;!important;
+    }
+    .html img{
+        display: none;
+    }
+}

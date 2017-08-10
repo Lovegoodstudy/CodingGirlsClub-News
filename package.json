@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "body-parser": "^1.17.2",
+    "sqlite3": "^3.1.9",
     "cookie-parser": "^1.4.3",
     "express-session": "^1.15.5",
     "orm": "^3.2.4"
