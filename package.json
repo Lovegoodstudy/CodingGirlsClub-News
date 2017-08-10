@@ -1,20 +1,17 @@
 {
-  "name": "CodingGirlsClub-News",
+  "name": "/home/lovegood/WebstormProjects/CodingGirlsClub-News/package.json",
   "version": "1.0.0",
-  "description": "",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Lovegoodstudy/CodingGirlsClub-News"
-  },
-  "author": "",
-  "license": "",
   "dependencies": {
     "express": "^4.15.4",
     "express.js": "^1.0.0",
+    "formidable": "^1.1.1",
+    "moment": "^2.18.1",
     "sqlite3": "^3.1.9"
   },
   "devDependencies": {
     "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "express-session": "^1.15.5",
     "orm": "^3.2.4"
   }
 }
