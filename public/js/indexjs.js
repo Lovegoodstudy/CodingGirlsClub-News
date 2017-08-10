@@ -22,7 +22,7 @@ $(document).ready(function () {
             div1.setAttribute("class","time-line-content");
             div1.style.height = `${data.length*188}px`;
             div2.setAttribute("class","time-line");
-            div2.style.height = `${data.length*171}px`;
+            div2.style.height = `${data.length*191}px`;
 
             for (i = 0; i < data.length; i++) {
                 if(i%2===1){
@@ -122,7 +122,7 @@ $(document).ready(function () {
                      div1.setAttribute("class","time-line-content2");
                      div1.style.height = `${data.length*188}px`;
                      div2.setAttribute("class","time-line2");
-                     div2.style.height = `${data.length*176}px`;
+                     div2.style.height = `${data.length*196}px`;
                      for (i = 0; i < data.length; i++) {
                          if(i%2 === 1){
                              if (data[i].video === "") {
@@ -229,7 +229,7 @@ $(document).ready(function () {
                      li.innerHTML = `
                      <div class="row html">
 <div class="col-md-10">
-<p>没有更多新闻了</p>
+<p>没有更多新闻了:(</p>
 </div>
                      `;
                      $(window).unbind('scroll');
@@ -264,3 +264,4 @@ $(function(){
     });
     goTop();//实现回到顶部元素的渐显与渐隐
 });
+

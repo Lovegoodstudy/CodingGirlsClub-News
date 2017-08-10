@@ -1,0 +1,17 @@
+/*==========================================================================
+=            
+
+Color Name - Light-Green;
+Color Code - #008000
+
+            =
+==========================================================================*/
+
+.section-heading h4,.left-about-heading  h4,.quote-icon, .single-faq h5, .colored-color, .feature-icon {
+	color: #008000;
+}
+
+.standard-button, .about-list-icon, .section-bg-color-second, .border-from-bottom::before, .boder-from-left::before {
+  background-color: #008000;
+}
+

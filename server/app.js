@@ -79,9 +79,6 @@ app.get("/news",function (req, res) {
     });
 });
 
-app.listen(8081, function () {
-    console.log("App is listening on port 8081!");
-});
 
 app.get('/',urlencodedParser,function (req,res){
 
