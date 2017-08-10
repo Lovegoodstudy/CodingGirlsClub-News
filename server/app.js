@@ -23,9 +23,9 @@ let appRoot = path.join(__dirname, '/');//cookie的设置
 // });
 app.all('*', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-    res.header("Content-Type", "application/json;charset=utf-8");
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
 app.use(orm.express(`sqlite://${appRoot}database.db`, {
@@ -51,8 +51,9 @@ app.use(orm.express(`sqlite://${appRoot}database.db`, {
         next();
     }
 }));
+app.use(express.static('../public'));
 app.get('/',urlencodedParser,function (req,res){
-
+    res.sendFile('/home/lovegood/WebstormProjects/CodingGirlsClub-News/public/addArticle.html');
 });
 app.post('/manage',urlencodedParser,function (req,res) {
     let login = require('./login');
@@ -69,6 +70,9 @@ app.get('/manage/blogs',urlencodedParser,function (req,res) {
 
 var articleRouter = require('./articleRouter');
 app.use('/article', articleRouter);
+
+var uploadRouter = require('./uploadRouter');
+app.use('/upload', uploadRouter);
 
 var server = app.listen(8081, function () {
     var host = server.address().address;
