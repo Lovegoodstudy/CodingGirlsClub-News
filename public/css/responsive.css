@@ -1,0 +1,31 @@
+/*================================================
+=            RESPONSIVE ISSUES FIXING            =
+================================================*/
+
+
+
+@media (max-width: 990px){
+	.left-about, .video-container, .single-pricing-table {
+  margin-bottom: 30px;
+	}
+} 
+
+@media (max-width: 767px) {
+  
+  html {
+  	font-size: 80%;
+  }
+
+}
+
+@media (max-width: 518px){
+	.header-social-icons{
+		display: none;   /*REMOVE SOCIAL ICON FROM HEADER*/
+	}
+}
+
+@media(max-width:480px) {
+	html {
+		font-size: 65%;
+	}
+}	

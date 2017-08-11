@@ -58,3 +58,5 @@ typings/
 .env
 
 .idea/
+server/database.db
+public/upload/
