@@ -2,7 +2,7 @@
 let express = require('express');
 let orm = require('orm');
 let app = express();
-app.use(express.static('public'));
+app.use(express.static('../public'));
 let bodyPaser = require('body-parser');
 let path = require('path');
 let urlencodedParser = bodyPaser.urlencoded({extended: true});
@@ -54,18 +54,18 @@ app.use(orm.express(`sqlite:///home/zl/sqlites/manage`, {
     }
 }));
 app.get('/',urlencodedParser,function (req,res) {
-    res.sendFile(__dirname + '/public/login.html')
+    res.sendFile('/home/zl/WebstormProjects/CodingGirlsClub-News/public/login.html')
 });
 app.post('/manage',urlencodedParser,function (req,res) {
-    let login = require('./server/login');
+    let login = require('./login');
     login.findLogin(req,res);
 });
 app.get('/manage/news',urlencodedParser,function (req,res) {
-    let news = require('./server/getAllNews');
+    let news = require('./getAllNews');
     news.getAllNews(req,res);
 });
 app.get('/manage/blogs',urlencodedParser,function (req,res) {
-    let blogs = require('./server/getAllBlogs');
+    let blogs = require('./getAllBlogs');
     blogs.getAllBlogs(req,res);
 });
 var server = app.listen(8081, function () {
