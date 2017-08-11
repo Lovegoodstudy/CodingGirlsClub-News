@@ -288,5 +288,13 @@ $(function(){
         else
             $("#gotop").fadeOut(1000);//以1秒的间隔渐隐id=gotop的元素
     });
+    $("#show_news").click(function () {
+        $("#wrapper1").css("display","none");
+        $("#wrapper").css("display","block");
+    });
+    $("#show_blogs").click(function () {
+        $("#wrapper1").css("display","block");
+        $("#wrapper").css("display","none");
+    })
 });
 
