@@ -6,15 +6,13 @@ let path = require('path');
 let urlencodedParser = bodyPaser.urlencoded({extended: true});
 let appRoot = path.join(__dirname, '/');
 
-
 app.all('*', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-    res.header("Content-Type", "application/json;charset=utf-8");
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
-
 
 app.use(orm.express(`sqlite:///${appRoot}/codeGirlsClub.db`, {
     define: function (db, models, next) {
@@ -47,6 +45,11 @@ app.use(orm.express(`sqlite:///${appRoot}/codeGirlsClub.db`, {
     }
 }));
 
+app.use(express.static('../public')); //设置静态文件目录，保证css和js的加载
+
+app.get('/addArticle', function (req,res) {
+    res.sendFile('/home/lovegood/WebstormProjects/CodingGirlsClub-News/public/addArticle.html');
+}
 
 app.get("/news",function (req, res) {
     let cnt = req.query.count;
@@ -79,18 +82,20 @@ app.get("/news",function (req, res) {
     });
 });
 
-
-app.get('/',urlencodedParser,function (req,res){
+app.get('/',urlencodedParser,function (req,res) {
 
 });
+
 app.post('/manage',urlencodedParser,function (req,res) {
     let login = require('./login');
     login.findLogin(req,res);
 });
+
 app.get('/manage/news',urlencodedParser,function (req,res) {
     let news = require('./getAllNews');
     news.getAllNews(req,res);
 });
+
 app.get('/manage/blogs',urlencodedParser,function (req,res) {
     let blogs = require('./getAllBlogs');
     blogs.getAllBlogs(req,res);
@@ -98,6 +103,9 @@ app.get('/manage/blogs',urlencodedParser,function (req,res) {
 
 var articleRouter = require('./articleRouter');
 app.use('/article', articleRouter);
+
+var uploadRouter = require('./uploadRouter');
+app.use('/upload', uploadRouter);
 
 var server = app.listen(8081, function () {
     var host = server.address().address;
