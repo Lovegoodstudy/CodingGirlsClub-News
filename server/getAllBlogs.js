@@ -1,8 +1,8 @@
 'use strict';
-function getAllBlogs(req,res) {
+function getAllBlogs(req,res){
     req.models.Blogs.find(function (err,reply) {
         console.log(reply);
-        res.send(JSON.stringify(reply));
+        res.send(reply);
     })
 }
 module.exports={
