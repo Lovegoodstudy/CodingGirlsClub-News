@@ -79,6 +79,7 @@ app.use('/', newsAndBlogsRouter);
 
 let uploadRouter = require('./uploadRouter');
 app.use('/upload', uploadRouter);
+
 let emailRouter=require('./emailRouter');
 app.use('/email',emailRouter);
 
