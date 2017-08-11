@@ -89,14 +89,36 @@ $(document).ready(function () {
         }
     });
 
+    let t;
+    let flag = 0;
+    $(window).bind('scroll',function(){
 
-    $(window).bind('scroll',function(){show()});
-
+        console.log("flag:"+flag);
+        if(flag>0){
+            clearTimeout(t);
+        }
+        t = setTimeout(show(),500);
+        flag = 1;
+    });
     function show(){
         if($(window).scrollTop()+$(window).height()>=$(document).height()){
             ajaxRead();
         }
     }
+
+    // let t;
+    // function show(){
+    //
+    //     if(flag){
+    //         if($(window).scrollTop()+$(window).height()>=$(document).height()){
+    //             // t = setTimeout("ajaxRead()",100);
+    //             // show()
+    //             ajaxRead();
+    //             flag=0;
+    //         }
+    //     }
+    //
+    // }
 
     function ajaxRead() {
         count++;
@@ -234,22 +256,13 @@ $(document).ready(function () {
                      `;
                      $(window).unbind('scroll');
                  }
-
+             flag = 0;
              },
              complete:function(){console.log('mission acomplete.')},
          });
     }
 });
 
-function goTop() {
-    $(window).scroll(function(e) {
-        //若滚动条离顶部大于100元素
-        if($(window).scrollTop()>100)
-            $("#gotop").fadeIn(1000);//以1秒的间隔渐显id=gotop的元素
-        else
-            $("#gotop").fadeOut(1000);//以1秒的间隔渐隐id=gotop的元素
-    });
-};
 $(function(){
     //点击回到顶部的元素
     $("#gotop").click(function(e) {
@@ -262,6 +275,13 @@ $(function(){
     $("#gotop").mouseout(function(e) {
         $(this).css("background","url(image/totop.png) no-repeat -76px -4px");
     });
-    goTop();//实现回到顶部元素的渐显与渐隐
+    //实现回到顶部元素的渐显与渐隐
+    $(window).scroll(function(e) {
+        //若滚动条离顶部大于100元素
+        if($(window).scrollTop()>840)
+            $("#gotop").fadeIn(1000);//以1秒的间隔渐显id=gotop的元素
+        else
+            $("#gotop").fadeOut(1000);//以1秒的间隔渐隐id=gotop的元素
+    });
 });
 

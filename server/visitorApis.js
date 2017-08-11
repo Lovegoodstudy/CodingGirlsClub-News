@@ -1,50 +1,9 @@
 let express = require('express');
-let orm = require('orm');
-let app = express();
-let bodyPaser = require('body-parser');
-let path = require('path');
-let urlencodedParser = bodyPaser.urlencoded({extended: true});
-let appRoot = path.join(__dirname, '/');
+let router = express.Router();
+let bodyParser = require('body-parser');
+let urlencodedParser = bodyParser.urlencoded({extended: true});
 
-app.all('*', function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-    res.header("Content-Type", "application/json;charset=utf-8");
-    next();
-});
-
-app.use(orm.express(`sqlite:///home/ggbond/Desktop/codeGirlsClub.db`, {
-    define: function (db, models, next) {
-        models.Manager = db.define("manager", {
-            id: Number,
-            nickname : String,
-            password : String,
-            email : String
-        });
-        models.News = db.define('news', {
-            id : Number,
-            title : String,
-            content : String,
-            picture : String,
-            video : String,
-            author: String,
-            date: String
-        });
-        models.Blogs = db.define('blogs', {
-            id : Number,
-            title : String,
-            content : String,
-            picture : String,
-            video : String,
-            author: String,
-            date: String
-        });
-        next();
-    }
-}));
-
-app.get("/news",function (req, res) {
+router.get("/news",function (req, res) {
     let cnt = req.query.count;
     req.models.News.find(function (err, newsInfo) {
         if(err) throw err;
@@ -75,7 +34,7 @@ app.get("/news",function (req, res) {
     });
 });
 
-app.get("/blogs",function (req, res) {
+router.get("/blogs",function (req, res) {
     let cnt = req.query.count;
     req.models.Blogs.find(function (err, blogsInfo) {
         if(err) throw err;
@@ -106,7 +65,7 @@ app.get("/blogs",function (req, res) {
     });
 });
 
-app.post("/news/filter",urlencodedParser,function (req, res) {
+router.post("/news/filter",urlencodedParser,function (req, res) {
     const THISYEAR = 2017;
 
     let cnt = req.body.cnt;
@@ -181,11 +140,9 @@ app.post("/news/filter",urlencodedParser,function (req, res) {
     });
 });
 
-app.listen(8081, function () {
-    console.log("App is listening on port 8081!");
-});
-
 function compareDate(y1,m1,y2,m2) {
     if(y1===y2) return m1-m2;
     else return y1-y2;
 }
+
+module.exports = router;
