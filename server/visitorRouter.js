@@ -10,8 +10,8 @@ router.get("/news",function (req, res) {
         newsInfo.sort(function(input_a,input_b) {
             let a = input_a.date;
             let b = input_b.date;
-            let arr_a = a.split('/');
-            let arr_b = b.split('/');
+            let arr_a = a.split('-');
+            let arr_b = b.split('-');
             arr_a = arr_a.map(i => parseInt(i));
             arr_b = arr_b.map(i => parseInt(i));
             if (arr_a[0] !== arr_b[0]) {

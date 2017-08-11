@@ -16,6 +16,7 @@ a:hover{
 .html{
     margin-top: 20px;
     height: 120px;
+    font-size: 65%;
     padding-left: 0;!important;
     padding-right: 0;!important;
 }
@@ -32,6 +33,7 @@ a:hover{
 }
 .html h3{
     margin: 0;
+    font-size: 200%;
 }
 .html p{
     margin-bottom: 5px;
@@ -161,6 +163,8 @@ a:hover{
 @media (max-width: 1024px) {
     .html img{
         margin-top: 5px;
+        width: 130px;
+        height: 100px;
     }
     .rectangle2::after{
         content:"";
@@ -186,19 +190,28 @@ a:hover{
 }
 @media (max-width: 768px) {
     .html img{
-        width: 130px;
-        height: 90px;
+        display: none;
+    }
+    .html div{
+        float: none;
     }
     .col-md-5{
-        padding-right: 0;!important;
+        padding-right: 5px;!important;
     }
     .col-md-6{
         padding-right: 0;!important;
+    }
+    .time-line-content{
+        display: none;
     }
     .rectangle2::after{
         content:"";
         width: 0;
         height: 0;
+    }
+    .rectangle2{
+        height: 210px;
+        width: 70%;
     }
     .rectangle1::after{
         content:"";
