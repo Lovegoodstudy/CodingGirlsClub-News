@@ -60,3 +60,5 @@ typings/
 .idea/
 server/database.db
 public/upload/
+package.json
+package-lock.json
