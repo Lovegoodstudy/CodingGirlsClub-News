@@ -1,0 +1,27 @@
+{
+  "name": "codinggirlsclub-news",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lovegoodstudy/CodingGirlsClub-News.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lovegoodstudy/CodingGirlsClub-News/issues"
+  },
+  "homepage": "https://github.com/Lovegoodstudy/CodingGirlsClub-News#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express.js": "^1.0.0",
+    "orm": "^3.2.4",
+    "sqlite3": "^3.1.8",
+    "nodemailer": "^4.0.1"
+  }
+}
