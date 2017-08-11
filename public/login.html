@@ -8,8 +8,9 @@
     <script src="js/login.js"></script>
     <script src="layer/layer.js"></script>
     <script src="layer/layui.js"></script><script> sessionStorage.clear();</script>
+    <script src="js/login_email.js"></script>
     <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.css">
-    <link type="text/css" rel="stylesheet" href="stylesheet/login.css">
+    <link type="text/css" rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="layer/mobile/need/layer.css">
     <link rel="stylesheet" href="layer/css/layui.css">
 </head>
@@ -63,13 +64,13 @@
                 </div>
                 <div class="modal-body">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="email" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control confirm_email" placeholder="email" aria-describedby="basic-addon2">
                         <span class="input-group-addon" id="basic-addon2">@example.com</span>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Go</button>
+                    <button type="button" class="btn btn-primary" onclick="email_weather_existence()">Go</button>
                 </div>
             </div>
         </div>

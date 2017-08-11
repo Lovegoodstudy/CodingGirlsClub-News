@@ -17,6 +17,6 @@ function confirm_email(obj) {
 function email_weather_existence() {
     let emails={};
     emails.email=$('.confirm_email').val();
-    //alert(JSON.stringify(emails));
+    alert(JSON.stringify(emails));
     confirm_email(emails);
 }

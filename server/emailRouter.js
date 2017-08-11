@@ -9,9 +9,9 @@ const nodemailer = require('nodemailer');
 //     next();
 // });
 router.post('/',urlencodedParser,function (req,res) {
-        //console.log(req.body);
+    console.log(req.body);
     var mail = req.body.email;
-    //console.log(mail);
+    console.log(mail);
     //检测邮箱地址是否为空
     if (mail=="") {
         //console.log('success');
