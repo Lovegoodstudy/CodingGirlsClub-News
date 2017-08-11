@@ -6,71 +6,82 @@ let path = require('path');
 let urlencodedParser = bodyParser.urlencoded({extended: true});
 let appRoot = path.join(__dirname, '/');
 
+//cookie的设置
+let session = require("express-session");
+let cookie = require("cookie-parser");
 
 app.all('*', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-    res.header("Content-Type", "application/json;charset=utf-8");
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 });
 
+// 设置 Cookie
+app.use(cookie());
+app.use(session({
+    secret: '12345',
+    name: 'database',            //这里的name值得是cookie的name，默认cookie的name是：connect.sid
+    cookie: {max: 180 * 60 * 1000},
+    resave: false,
+    saveUninitialized: true,
+}));
 
-app.use(orm.express(`sqlite:///${appRoot}/codeGirlsClub.db`, {
+app.use(orm.express(`sqlite:///${appRoot}database.db`, {
     define: function (db, models, next) {
-        models.Manager = db.define("manager", {
+        models.Manager = db.define("manage", {
             id: Number,
-            nickname : String,
-            password : String,
-            email : String
+            manageName: String,
+            password: String,
+            email: String
         });
-        models.News = db.define('news', {
-            id : Number,
-            title : String,
-            content : String,
-            picture : String,
-            video : String,
-            author: String,
-            date: String
+        models.News = db.define("news", {
+            id: Number,
+            title: String,
+            content: String,
+            pictureUrl: String,
+            videoUrl: String,
+            date: String,
+            author: String
         });
-        models.Blogs = db.define('blogs', {
-            id : Number,
-            title : String,
-            content : String,
-            picture : String,
-            video : String,
-            author: String,
-            date: String
-
+        models.Blogs = db.define("blogs", {
+            id: Number,
+            title: String,
+            content: String,
+            pictureUrl: String,
+            videoUrl: String,
+            date: String,
+            author: String
         });
         next();
     }
 }));
 
-app.get('/',urlencodedParser,function (req,res){
+app.use(express.static('../public')); //设置静态文件目录，保证css和js的加载
 
-});
-app.post('/manage',urlencodedParser,function (req,res) {
-    let login = require('./login');
-    login.findLogin(req,res);
-});
-app.get('/manage/news',urlencodedParser,function (req,res) {
-    let news = require('./getAllNews');
-    news.getAllNews(req,res);
-});
-app.get('/manage/blogs',urlencodedParser,function (req,res) {
-    let blogs = require('./getAllBlogs');
-    blogs.getAllBlogs(req,res);
-});
+// app.get('/', function (req, res) {
+//     res.sendFile('/home/zl/WebstormProjects/CodingGirlsClub-News/public/login.html')
+// });
+//
+// app.get('/addArticle', function (req, res) {
+//     res.sendFile('/home/zl/WebstormProjects/CodingGirlsClub-News/public/addArticle.html');
+// });
 
-var articleRouter = require('./articleRouter');
+let manageRouter = require('./manageRouter');
+app.use('/manage', manageRouter);
+
+let articleRouter = require('./articleRouter');
 app.use('/article', articleRouter);
 
-let newsAndBlogsRouter = require('./visitorApis');
+let newsAndBlogsRouter = require('./visitorRouter');
 app.use('/', newsAndBlogsRouter);
 
-var server = app.listen(8081, function () {
-    var host = server.address().address;
-    var port = server.address().port;
+let uploadRouter = require('./uploadRouter');
+app.use('/upload', uploadRouter);
+
+let server = app.listen(8081, function () {
+    let host = server.address().address;
+    let port = server.address().port;
     console.log('Example app listening at http://%s:%s', host, port);
 });
