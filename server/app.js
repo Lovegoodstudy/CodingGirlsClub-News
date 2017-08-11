@@ -79,9 +79,12 @@ app.use('/', newsAndBlogsRouter);
 
 let uploadRouter = require('./uploadRouter');
 app.use('/upload', uploadRouter);
+let emailRouter=require('./emailRouter');
+app.use('/email',emailRouter);
 
 let server = app.listen(8081, function () {
     let host = server.address().address;
     let port = server.address().port;
     console.log('Example app listening at http://%s:%s', host, port);
 });
+
