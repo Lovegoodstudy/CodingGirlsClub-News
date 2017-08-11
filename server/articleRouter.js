@@ -24,7 +24,7 @@ router.post('/', urlencodedParser, function (req, res) {
         });
     }
     if (req.query.type === 'blogs') {
-        req.models.Blogs.create({ title : req.body.title, content : req.body.content, date : moment().format('YYYYMMDD')}, function (error, result) {
+        req.models.Blogs.create({ title : req.body.title, content : req.body.content, date : moment().format('YYYYMMDD')}, function (err, result) {
             if (err) {
                 res.status(400).send("新闻创建失败");
                 return;

@@ -51,8 +51,8 @@ app.use(orm.express(`sqlite://${appRoot}database.db`, {
         next();
     }
 }));
-app.use(express.static('../public'));
-app.get('/',urlencodedParser,function (req,res){
+app.use(express.static('../public')); //设置静态文件目录，保证css和js的加载
+app.get('/addArticle', function (req,res){
     res.sendFile('/home/lovegood/WebstormProjects/CodingGirlsClub-News/public/addArticle.html');
 });
 app.post('/manage',urlencodedParser,function (req,res) {
