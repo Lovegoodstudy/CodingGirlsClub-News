@@ -24,7 +24,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'styles' },
 		{ name: 'colors' }
 	];
-
+	config.extraPlugins = 'markdown';
 	// Remove some buttons provided by the standard plugins, which are
 	// not needed in the Standard(s) toolbar.
 	config.removeButtons = 'Underline,Subscript,Superscript';
@@ -34,7 +34,6 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
-	
 	config.filebrowserUploadUrl="/upload";
-    config.image_previewText=' ';
+	config.image_previewText=' ';
 };
