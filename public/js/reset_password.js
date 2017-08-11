@@ -15,7 +15,9 @@ function reset_password(obj) {
     })
 }
 function reset_password_interface() {
-   // alert('success');
+    alert(document.cookie);
+    var admin=JSON.parse(document.cookie);
+    alert(admin);
     var password={};
     let pwd=$('.password').val();
     let r_pwd=$('.confirm_password').val();

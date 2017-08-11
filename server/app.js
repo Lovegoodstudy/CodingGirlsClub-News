@@ -83,6 +83,9 @@ app.use('/upload', uploadRouter);
 let emailRouter=require('./emailRouter');
 app.use('/email',emailRouter);
 
+let reset_passwordRouter=require('./reset_passwordRouter');
+app.use('/reset_password',reset_passwordRouter);
+
 let server = app.listen(8081, function () {
     let host = server.address().address;
     let port = server.address().port;
