@@ -34,7 +34,7 @@
     padding: 30px;
 }
 .main{
-    margin-top: 50px;
+    margin-top: 0px;
 }
 #login_box{
     width: auto;
@@ -47,6 +47,23 @@
     padding: 5px;
     border-radius: 5px;
 }
+.reset_password_box h3,.reset_password_box input,.reset_password_box button{
+    float: none;
+    margin: 10px auto;
+    padding: 5px;
+    border-radius: 5px;
+}
+.reset_password_box input,.reset_password_box button{
+    border: 1px solid dodgerblue;
+}
+.reset_password_box button{
+    background-color:dodgerblue;
+    color: white;
+}
+.reset_password_box button:hover{
+    background-color: purple;
+}
+
 #login_box button{
     background-color: blueviolet;
     color: white;

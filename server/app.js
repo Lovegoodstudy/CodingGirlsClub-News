@@ -1,3 +1,4 @@
+"use strict"
 let express = require('express');
 let orm = require('orm');
 let app = express();
@@ -5,6 +6,8 @@ let bodyPaser = require('body-parser');
 let path = require('path');
 let urlencodedParser = bodyPaser.urlencoded({extended: true});
 let appRoot = path.join(__dirname, '/');
+const nodemailer = require('nodemailer');
+app.use(express.static('public'));
 
 
 app.all('*', function (req, res, next) {
@@ -98,6 +101,9 @@ app.get('/manage/blogs',urlencodedParser,function (req,res) {
 
 var articleRouter = require('./articleRouter');
 app.use('/article', articleRouter);
+
+let email=require('./email');
+app.use('/email',email);
 
 var server = app.listen(8081, function () {
     var host = server.address().address;
