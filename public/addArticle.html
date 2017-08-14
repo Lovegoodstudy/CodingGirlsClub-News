@@ -5,50 +5,86 @@
     <title>添加文章</title>
     <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.css">
     <link rel="stylesheet" href="./css/addArticle.css">
+    <!--<link rel="stylesheet" href="./layer/mobile/need/layer.css">-->
+    <link rel="stylesheet" href="//res.layui.com/layui/build/css/layui.css?t=1502431978046" media="all">
     <script type="text/javascript" src="./ckeditor/ckeditor.js"></script>
     <script src="./jquery-3.2.1.js"></script>
     <script src="./bootstrap-3.3.7-dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="./js/addArticle.js"></script>
+    <script type="text/javascript" src="layer/layui.js"></script>
+    <script type="text/javascript" src="js/layuiUploadCoverImage.js"></script>
 </head>
 <body>
-    <div class="page-breadcrumb">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h2>Add an article</h2>
-                </div>
-                <div class="col-sm-6 text-right">
-                    <ol class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li>Login</li>
-                    </ol>
-                </div>
+<div class="page-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Add an article</h2>
+            </div>
+            <div class="col-sm-6 text-right">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Login</li>
+                </ol>
             </div>
         </div>
     </div>
-    <div class="space70"></div>
-    <div class="container">
-        <form>
-            <div id="title" class="row">
-                <input type="text" id="titleText" class="col-xs-12 col-sm-8 col-md-8" required="required">
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <button class="btn-primary">添加封面图片</button>
-                    <button class="btn-primary">添加封面视频</button>
-                </div>
-            </div>
-            <div class="row">
-                <div id="content">
-                    <textarea id="contentEditor" class="col-md-12"></textarea>
-                    <script type="text/javascript">
-                        var contentEditor = CKEDITOR.replace( 'contentEditor' );
-                    </script>
-                </div>
-            </div>
-            <div class="row text-right">
-                <button type="button" class="btn-primary" id="submitNews">提交新闻</button>
-                <button type="button" class="btn-primary" id="submitBlogs">提交Blog</button>
-            </div>
-        </form>
+</div>
+<div class="space70"></div>
+<div class="container">
+    <div id="title" class="row">
+        <input type="text" id="titleText" class="col-xs-6 col-sm-6 col-md-6">
+        <button class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="setLayuiUploadImage()">
+            添加封面图片
+        </button>
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">添加封面图片</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="site-demo-upload">
+                            <div>
+                                <img class="site-picture" id="LAY_demo_upload" src="http://res.layui.com/images/fly/fly.jpg">
+                            </div>
+                            <div class="site-demo-upbar">
+                                <div class="layui-box layui-upload-button">
+                                    <form target="layui-upload-iframe" method="get" key="set-mine"
+                                          enctype="multipart/form-data">
+                                        <input type="file" name="file" class="layui-upload-file" id="test">
+                                    </form>
+                                    <span class="layui-upload-icon"><i class="layui-icon"></i>上传图片</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveCoverImageUrl();">保存封面</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
     </div>
+    <div class="row">
+        <div id="content">
+            <textarea id="contentEditor" class="col-md-12"></textarea>
+            <script type="text/javascript">
+                var contentEditor = CKEDITOR.replace('contentEditor');
+            </script>
+        </div>
+    </div>
+    <div class="row text-right">
+        <button type="button" class="btn-primary" id="submitNews">提交新闻</button>
+        <button type="button" class="btn-primary" id="submitBlogs">提交Blog</button>
+    </div>
+</div>
 </body>
 </html>
