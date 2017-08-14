@@ -97,7 +97,7 @@ $(document).ready(function () {
                             li.style.marginLeft = '15%';
                             li.innerHTML = `
 <div class="row html">
-<div class="col-md-8 col-xs-12">
+<div class="col-md-12 col-xs-12">
 <h3><a href="">${data[i].title}</a></h3>
 <p>作者：${data[i].author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data[i].date}</span></p>
 <p class="content">${data[i].content}</p>
@@ -207,7 +207,7 @@ $(document).ready(function () {
                                 li.style.marginRight = '30%';
                                 li.innerHTML = `
 <div class="row html">
-<div class="col-md-8 col-xs-12">
+<div class="col-md-12 col-xs-12">
 <h3><a href="">${data[i].title}</a></h3>
 <p>作者：${data[i].author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data[i].date}</span></p>
 <p class="content">${data[i].content}</p>
@@ -240,7 +240,7 @@ $(document).ready(function () {
                                 li.style.marginRight = '15%';
                                 li.innerHTML = `
 <div class="row html">
-<div class="col-md-8 col-xs-12">
+<div class="col-md-12 col-xs-12">
 <h3><a href="">${data[i].title}</a></h3>
 <p>作者：${data[i].author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data[i].date}</span></p>
 <p class="content">${data[i].content}</p>
@@ -286,7 +286,7 @@ $(document).ready(function () {
                                 li.style.marginLeft = '30%';
                                 li.innerHTML = `
 <div class="row html">
-<div class="col-md-8 col-xs-12">
+<div class="col-md-12 col-xs-12">
 <h3><a href="">${data[i].title}</a></h3>
 <p>作者：${data[i].author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data[i].date}</span></p>
 <p class="content">${data[i].content}</p>
@@ -319,7 +319,7 @@ $(document).ready(function () {
                                 li.style.marginLeft = '15%';
                                 li.innerHTML = `
 <div class="row html">
-<div class="col-md-8 col-xs-12">
+<div class="col-md-12 col-xs-12">
 <h3><a href="">${data[i].title}</a></h3>
 <p>作者：${data[i].author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data[i].date}</span></p>
 <p class="content">${data[i].content}</p>
