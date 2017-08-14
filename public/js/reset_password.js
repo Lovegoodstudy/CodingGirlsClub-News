@@ -15,9 +15,11 @@ function reset_password(obj) {
     })
 }
 function reset_password_interface() {
-    alert(document.cookie);
-    var admin=JSON.parse(document.cookie);
-    alert(admin);
+    let arr=document.cookie.split(";");
+    let arr1=arr[1].split("=");
+    //alert(arr1[1]);
+    let admin = JSON.parse(arr1[1]);
+    let email=admin.email;
     var password={};
     let pwd=$('.password').val();
     let r_pwd=$('.confirm_password').val();
@@ -29,6 +31,7 @@ function reset_password_interface() {
             alert('密码不一致!');
         }else {
             password.password=pwd;
+            password.email=email;
             reset_password(password);
         }
     }
