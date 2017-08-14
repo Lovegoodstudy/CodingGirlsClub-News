@@ -32,7 +32,7 @@ $(document).ready(function () {
 
                 for (i = 0; i < data.length; i++) {
                     if(i%2===1){
-                        if (data[i].videoUrl === null) {
+                        if (data[i].pictureUrl !== null) {
 
                             li = document.createElement('li');
                             li.setAttribute("class","rectangle2");
@@ -45,7 +45,7 @@ $(document).ready(function () {
 <p class="content">${data[i].content}</p>
 <a href="">READ MORE</a>
 </div>
-<a href="" class="col-md-4 img"><img src="./image/news.jpg"></a>
+<a href="" class="col-md-4 img"><img src="${data[i].pictureUrl}"></a>
 </div>
 
 `;
@@ -58,10 +58,23 @@ $(document).ready(function () {
                             el.appendChild(li, el.childNodes[0]);
 
                         } else {
-
+                            li = document.createElement('li');
+                            li.setAttribute("class","rectangle2");
+                            li.style.marginLeft = '30%';
+                            li.innerHTML = `
+<div class="row html">
+<div class="col-md-12 col-xs-12">
+<h3><a href="">${data[i].title}</a ></h3>
+<p>作者：${data[i].author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data[i].date}</span></p >
+<p class="content">${data[i].content}</p >
+<a href="">READ MORE</a >
+</div>
+</div>
+`;
+                            el.appendChild(li, el.childNodes[0]);
                         }
                     }else {
-                        if (data[i].videoUrl === null) {
+                        if (data[i].pictureUrl !== null) {
                             li = document.createElement('li');
                             li.setAttribute("class","rectangle2");
                             li.style.marginLeft = '15%';
@@ -73,13 +86,27 @@ $(document).ready(function () {
 <p class="content">${data[i].content}</p>
 <a href="">READ MORE</a>
 </div>
-<a href="" class="col-md-4 img"><img src="./image/news.jpg"></a>
+<a href="" class="col-md-4 img"><img src="${data[i].pictureUrl}"></a>
 </div>
 `;
 
                             el.appendChild(li, el.childNodes[0]);
                         } else {
+                            li = document.createElement('li');
+                            li.setAttribute("class","rectangle2");
+                            li.style.marginLeft = '15%';
+                            li.innerHTML = `
+<div class="row html">
+<div class="col-md-8 col-xs-12">
+<h3><a href="">${data[i].title}</a></h3>
+<p>作者：${data[i].author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data[i].date}</span></p>
+<p class="content">${data[i].content}</p>
+<a href="">READ MORE</a>
+</div>
+</div>
+`;
 
+                            el.appendChild(li, el.childNodes[0]);
                         }
                     }
                 }
@@ -130,7 +157,6 @@ $(document).ready(function () {
     //     }
     //
     // }
-
     function ajaxRead() {
         count++;
         console.log(count)
@@ -158,7 +184,7 @@ $(document).ready(function () {
                     div2.style.height = `${data.length*196}px`;
                     for (i = 0; i < data.length; i++) {
                         if(i%2 === 1){
-                            if (data[i].videoUrl === null) {
+                            if (data[i].pictureUrl !== null) {
                                 li = document.createElement('li');
                                 li.setAttribute("class","rectangle1");
                                 li.style.marginRight = '30%';
@@ -170,16 +196,29 @@ $(document).ready(function () {
 <p class="content">${data[i].content}</p>
 <a href="">READ MORE</a>
 </div>
-<a href="" class="col-md-4 img"><img src="./image/news.jpg"></a>
+<a href="" class="col-md-4 img"><img src="${data[i].pictureUrl}"></a>
 </div>
 `;
                                 el.appendChild(li, el.childNodes[0]);
 
                             } else {
-
+                                li = document.createElement('li');
+                                li.setAttribute("class","rectangle1");
+                                li.style.marginRight = '30%';
+                                li.innerHTML = `
+<div class="row html">
+<div class="col-md-8 col-xs-12">
+<h3><a href="">${data[i].title}</a></h3>
+<p>作者：${data[i].author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data[i].date}</span></p>
+<p class="content">${data[i].content}</p>
+<a href="">READ MORE</a>
+</div>
+</div>
+`;
+                                el.appendChild(li, el.childNodes[0]);
                             }
                         }else {
-                            if (data[i].videoUrl === null) {
+                            if (data[i].pictureUrl !== null) {
                                 li = document.createElement('li');
                                 li.setAttribute("class","rectangle1");
                                 li.style.marginRight = '15%';
@@ -191,12 +230,25 @@ $(document).ready(function () {
 <p class="content">${data[i].content}</p>
 <a href="">READ MORE</a>
 </div>
-<a href="" class="col-md-4 img"><img src="./image/news.jpg"></a>
+<a href="" class="col-md-4 img"><img src="${data[i].pictureUrl}"></a>
 </div>
 `;
                                 el.appendChild(li, el.childNodes[0]);
                             } else {
-
+                                li = document.createElement('li');
+                                li.setAttribute("class","rectangle1");
+                                li.style.marginRight = '15%';
+                                li.innerHTML = `
+<div class="row html">
+<div class="col-md-8 col-xs-12">
+<h3><a href="">${data[i].title}</a></h3>
+<p>作者：${data[i].author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data[i].date}</span></p>
+<p class="content">${data[i].content}</p>
+<a href="">READ MORE</a>
+</div>
+</div>
+`;
+                                el.appendChild(li, el.childNodes[0]);
                             }
                         }
                     }
@@ -211,7 +263,7 @@ $(document).ready(function () {
                     div2.style.height = `${data.length*177}px`;
                     for (i = 0; i < data.length; i++) {
                         if(i%2===1){
-                            if (data[i].videoUrl === null) {
+                            if (data[i].pictureUrl !== null) {
                                 li = document.createElement('li');
                                 li.setAttribute("class","rectangle2");
                                 li.style.marginLeft = '30%';
@@ -223,16 +275,29 @@ $(document).ready(function () {
 <p class="content">${data[i].content}</p>
 <a href="">READ MORE</a>
 </div>
-<a href="" class="col-md-4 img"><img src="./image/news.jpg"></a>
+<a href="" class="col-md-4 img"><img src="${data[i].pictureUrl}"></a>
 </div>
 `;
                                 el.appendChild(li, el.childNodes[0]);
 
                             } else {
-
+                                li = document.createElement('li');
+                                li.setAttribute("class","rectangle2");
+                                li.style.marginLeft = '30%';
+                                li.innerHTML = `
+<div class="row html">
+<div class="col-md-8 col-xs-12">
+<h3><a href="">${data[i].title}</a></h3>
+<p>作者：${data[i].author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data[i].date}</span></p>
+<p class="content">${data[i].content}</p>
+<a href="">READ MORE</a>
+</div>
+</div>
+`;
+                                el.appendChild(li, el.childNodes[0]);
                             }
                         }else {
-                            if (data[i].videoUrl === null) {
+                            if (data[i].pictureUrl !== null) {
                                 li = document.createElement('li');
                                 li.setAttribute("class","rectangle2");
                                 li.style.marginLeft = '15%';
@@ -244,12 +309,25 @@ $(document).ready(function () {
 <p class="content">${data[i].content}</p>
 <a href="">READ MORE</a>
 </div>
-<a href="" class="col-md-4 img"><img src="./image/news.jpg"></a>
+<a href="" class="col-md-4 img"><img src="${data[i].pictureUrl}"></a>
 </div>
 `;
                                 el.appendChild(li, el.childNodes[0]);
                             } else {
-
+                                li = document.createElement('li');
+                                li.setAttribute("class","rectangle2");
+                                li.style.marginLeft = '15%';
+                                li.innerHTML = `
+<div class="row html">
+<div class="col-md-8 col-xs-12">
+<h3><a href="">${data[i].title}</a></h3>
+<p>作者：${data[i].author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data[i].date}</span></p>
+<p class="content">${data[i].content}</p>
+<a href="">READ MORE</a>
+</div>
+</div>
+`;
+                                el.appendChild(li, el.childNodes[0]);
                             }
                         }
                     }
