@@ -129,35 +129,26 @@ $(document).ready(function () {
     pageOne(URL);
     let t;
     let flag = 0;
+    console.log("x");
     $(window).bind('scroll',function(){
-
-        console.log("flag:"+flag);
+        console.log(flag);
+        show();
+        /*console.log("flag:"+flag);
         if(flag>0){
             clearTimeout(t);
         }
         t = setTimeout(show(),500);
-        flag = 1;
+        flag = 1;*/
     });
 
     function show(){
         if($(window).scrollTop()+$(window).height()>=$(document).height()){
+            console.log("p")
             ajaxRead();
         }
     }
 
-    // let t;
-    // function show(){
-    //
-    //     if(flag){
-    //         if($(window).scrollTop()+$(window).height()>=$(document).height()){
-    //             // t = setTimeout("ajaxRead()",100);
-    //             // show()
-    //             ajaxRead();
-    //             flag=0;
-    //         }
-    //     }
-    //
-    // }
+
     function ajaxRead() {
         count++;
         console.log(count)
