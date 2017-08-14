@@ -32,11 +32,24 @@
 <div class="space70"></div>
 <div class="container">
     <div id="title" class="row">
-        <input type="text" id="titleText" class="col-xs-6 col-sm-6 col-md-6">
-        <button class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="setLayuiUploadImage()">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="input-group">
+                <span class="input-group-addon">标题</span>
+                <input type="text" id="titleText" class="form-control" placeholder="title"
+                       aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+            <div class="input-group ">
+                <span class="input-group-addon">作者</span>
+                <input type="text" id="authorText" class="form-control" placeholder="author"
+                       aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <button class="btn btn-default" data-toggle="modal" data-target="#myModal"
+                onclick="setLayuiUploadImage()" style="display: inline-block">
             添加封面图片
         </button>
-        <!-- 模态框（Modal） -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
             <div class="modal-dialog">
@@ -66,12 +79,15 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                         </button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveCoverImageUrl();">保存封面</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                onclick="saveCoverImageUrl();">保存封面
+                        </button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal -->
         </div>
     </div>
+    <div class="space15"></div>
     <div class="row">
         <div id="content">
             <textarea id="contentEditor" class="col-md-12"></textarea>
@@ -81,8 +97,8 @@
         </div>
     </div>
     <div class="row text-right">
-        <button type="button" class="btn-primary" id="submitNews">提交新闻</button>
-        <button type="button" class="btn-primary" id="submitBlogs">提交Blog</button>
+        <button type="button" class="btn btn-primary" id="submitNews">提交新闻</button>
+        <button type="button" class="btn btn-primary" id="submitBlogs">提交Blog</button>
     </div>
 </div>
 </body>

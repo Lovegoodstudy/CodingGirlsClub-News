@@ -1,3 +1,9 @@
+div.col-xs-6.col-sm-6.col-md-6{
+    margin-left: -15px;
+}
+div.col-xs-3.col-sm-3.col-md-3{
+    margin-left: -15px;
+}
 .page-breadcrumb {
     padding: 40px;
     background-color: #209b60;
@@ -17,7 +23,9 @@
 .space70 {
     height: 70px;
 }
-
+.space15{
+    height: 15px;
+}
 #submitArticle {
 
 }
@@ -40,7 +48,7 @@
 
 .site-demo-upload,
 .site-demo-upload img {
-    width: 500px;
+    width: 100%;
     height: 300px;
 }
 

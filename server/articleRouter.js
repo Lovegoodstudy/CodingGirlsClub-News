@@ -13,7 +13,12 @@ router.post('/', urlencodedParser, function (req, res) {
     console.log(req.body);
     console.log(req.file);
     if (req.query.type === 'news') {
-        req.models.News.create({pictureUrl:req.body.pictureUrl,title: req.body.title, content: req.body.content, date: moment().format('YYYYMMDD')
+        req.models.News.create({
+            pictureUrl: req.body.pictureUrl,
+            title: req.body.title,
+            author:req.body.author,
+            content: req.body.content,
+            date: moment().format('YYYYMMDD')
         }, function (err, result) {
             if (err) {
                 console.log(err);
@@ -25,8 +30,9 @@ router.post('/', urlencodedParser, function (req, res) {
     }
     if (req.query.type === 'blogs') {
         req.models.Blogs.create({
-            pictureUrl:req.body.pictureUrl,
+            pictureUrl: req.body.pictureUrl,
             title: req.body.title,
+            author:req.body.author,
             content: req.body.content,
             date: moment().format('YYYYMMDD')
         }, function (err, result) {

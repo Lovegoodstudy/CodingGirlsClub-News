@@ -14,6 +14,7 @@ if (sessionStorage.user !== "true") {
                 dataType: 'json',
                 data: {
                     "title": $('#titleText').val(),
+                    "author":$('#authorText').val(),
                     "content": contentEditor.document.getBody().getHtml(),
                     "pictureUrl": JSON.parse(localStorage.getItem('CoverImageUrl'))
                 },
@@ -36,6 +37,7 @@ if (sessionStorage.user !== "true") {
                 dataType: 'json',
                 data: {
                     "title": $('#titleText').val(),
+                    "author":$('#authorText').val(),
                     "content": contentEditor.document.getBody().getHtml(),
                     "pictureUrl": JSON.parse(localStorage.getItem('CoverImageUrl'))
                 },
