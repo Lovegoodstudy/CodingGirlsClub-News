@@ -66,12 +66,7 @@ $(document).ready(function () {
 </div>
 
 `;
-                            /*<div class="html">
-                             <h3><a href="">${data[i].title}</a></h3>
-                             <p>作者：${data[i].author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data[i].date}</span></p>
-                             <p class="content">${data[i].content}</p>
-                             <a href="">READ MORE</a>
-                             </div>*/
+
                             el.appendChild(li, el.childNodes[0]);
 
                         } else {
