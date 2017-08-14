@@ -2,9 +2,32 @@
  * Created by zh on 17-8-14.
  */
 $(document).ready(function () {
+    let type = "news";
+    ajaxBody(type,'','','','');
+    $("#show_news").click(function () {
+        $("#thelist").empty();
+        type = "news";
+        ajaxBody(type,'','','','');
+    });
+    $("#show_blogs").click(function () {
+        $("#thelist").empty();
+        type = "blogs";
+        ajaxBody(type,'','','','');
+    });
+    $("#filter").click(function (e) {
+        e.preventDefault();
+        $("#thelist").empty();
+        sy = $("#startYear").val();
+        sm = $("#startMonth").val();
+        ey = $("#endYear").val();
+        em = $("#endMonth").val();
+        ajaxBody(type,sy,sm,ey,em);
+    });
+});
+
+function ajaxBody(type,sy,sm,ey,em) {
     let count = 1;
-    let sy='',sm='',ey='',em='';
-    let URL = `http://127.0.0.1:8081/news?count=${count}&sy=${sy}&sm=${sm}&ey=${ey}&em=${em}`;
+    let URL = `http://127.0.0.1:8081/${type}?count=${count}&sy=${sy}&sm=${sm}&ey=${ey}&em=${em}`;
     pageOne(URL,"thelist");
     $(window).bind("scroll",function () {
         if($(window).scrollTop()+$(window).height()>=$(document).height()){
@@ -12,9 +35,8 @@ $(document).ready(function () {
         }
     });
     function ajaxRead() {
-        console.log(count)
         count++;
-        URL = `http://127.0.0.1:8081/news?count=${count}&sy=${sy}&sm=${sm}&ey=${ey}&em=${em}`;
+        URL = `http://127.0.0.1:8081/${type}?count=${count}&sy=${sy}&sm=${sm}&ey=${ey}&em=${em}`;
         $.ajax({
             url:URL,
             type:"GET",
@@ -51,92 +73,7 @@ $(document).ready(function () {
             }
         });
     }
-    // $("#filter").click(function (e) {
-    //     e.preventDefault();
-    //     sy = $("#startYear").val();
-    //     sm = $("#startMonth").val();
-    //     ey = $("#endYear").val();
-    //     em = $("#endMonth").val();
-    //     URL = `http://127.0.0.1:8081/news?count=${count}&sy=${sy}&sm=${sm}&ey=${ey}&em=${em}`;
-    //     $("#thelist").empty();
-    //     pageOne(URL,"thelist");
-    //
-    // });
-
-    $("#show_news").click(function () {
-        $("#wrapper1").css("display","none");
-        $("#wrapper").css("display","block");
-        sy='';sm='';ey='';em='';
-    });
-});
-
-$(document).ready(function () {
-    let count = 1;
-    let sy='',sm='',ey='',em='';
-    let URL = `http://127.0.0.1:8081/blogs?count=${count}&sy=${sy}&sm=${sm}&ey=${ey}&em=${em}`;
-    pageOne(URL,"thelist1");
-    $(window).bind("scroll",function () {
-        if($(window).scrollTop()+$(window).height()>=$(document).height()){
-            ajaxRead();
-        }
-    });
-    function ajaxRead() {
-        console.log(count)
-        count++;
-        URL = `http://127.0.0.1:8081/blogs?count=${count}&sy=${sy}&sm=${sm}&ey=${ey}&em=${em}`;
-        $.ajax({
-            url:URL,
-            type:"GET",
-            crossDomain:true,
-            cache:false,
-            success:function (data) {
-                /*设置中间的分割线*/
-                let div3 = document.createElement('div');
-                div3.setAttribute("class","time-line1");
-                $("#thelist1").append(div3);
-
-                if(count % 2 ===0){
-                    makeLines(data,"thelist1","time-line-content2","time-line2");
-                    for(let i=0; i<data.length; i++){
-                        if(i%2 ===1){
-                            makeRightLi(data[i],"rectangle1","thelist1","30%");
-                        }else{
-                            makeRightLi(data[i],"rectangle1","thelist1","15%");
-                        }
-                    }
-                }else {
-                    makeLines(data,"thelist1","time-line-content","time-line");
-                    for(let i=0; i<data.length; i++){
-                        if(i%2 ===1){
-                            makeLeftLi(data[i],"rectangle2","thelist1","30%");
-                        }else{
-                            makeLeftLi(data[i],"rectangle2","thelist1","15%");
-                        }
-                    }
-                }
-                if(data.length<6){
-                    makePrompt("thelist1");
-                }
-            }
-        });
-    }
-    // $("#filter").click(function (e) {
-    //     e.preventDefault();
-    //     sy = $("#startYear").val();
-    //     sm = $("#startMonth").val();
-    //     ey = $("#endYear").val();
-    //     em = $("#endMonth").val();
-    //     URL = `http://127.0.0.1:8081/blogs?count=${count}&sy=${sy}&sm=${sm}&ey=${ey}&em=${em}`;
-    //     $("#thelist1").empty();
-    //     pageOne(URL,"thelist1");
-    // });
-
-    $("#show_blogs").click(function () {
-        $("#wrapper1").css("display","block");
-        $("#wrapper").css("display","none");
-        sy='';sm='';ey='';em='';
-    })
-});
+}
 
 function pageOne(URL,theListId) {
     $.ajax({
@@ -222,4 +159,3 @@ function makePrompt(theListId) {
     $(`#${theListId}`).append(li);
     $(window).unbind('scroll');
 }
-
