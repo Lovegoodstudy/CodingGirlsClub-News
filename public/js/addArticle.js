@@ -1,54 +1,51 @@
 const BASE_URL = "http://localhost:8081";
-/*$(document).ready(function () {
-   $('#addButton').bind('click',function () {
-       $.ajax({
-           url:BASE_URL+
-       })
-   })
-});*/
-$(document).ready(function () {
-    $('#submitNews').bind('click', function () {
-        if ($('#titleText').val()==='') {
-            alert('标题不能为空！');
-            return;
-        }
-        $.ajax({
-            url: BASE_URL + '/article?type=news',
-            type: 'post',
-            dataType: 'json',
-            data:{
-                "title": $('#titleText').val(),
-                "content": contentEditor.document.getBody().getHtml(),
-                "pictureUrl": JSON.parse(localStorage.getItem('CoverImageUrl'))
-            },
-            success: function () {
-                alert('文章添加成功！');
-            },
-            error: function () {
-                alert('文章添加失败！');
+if (sessionStorage.user !== "true") {
+    location.href = 'login.html';
+}else{
+    $(document).ready(function () {
+        $('#submitNews').bind('click', function () {
+            if ($('#titleText').val() === '') {
+                alert('标题不能为空！');
+                return;
             }
+            $.ajax({
+                url: BASE_URL + '/article?type=news',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    "title": $('#titleText').val(),
+                    "content": contentEditor.document.getBody().getHtml(),
+                    "pictureUrl": JSON.parse(localStorage.getItem('CoverImageUrl'))
+                },
+                success: function () {
+                    alert('文章添加成功！');
+                },
+                error: function () {
+                    alert('文章添加失败！');
+                }
+            });
         });
+        $('#submitBlogs').bind('click', function () {
+            if ($('#titleText').val() === '') {
+                alert('标题不能为空！');
+                return;
+            }
+            $.ajax({
+                url: BASE_URL + '/article?type=blogs',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    "title": $('#titleText').val(),
+                    "content": contentEditor.document.getBody().getHtml(),
+                    "pictureUrl": JSON.parse(localStorage.getItem('CoverImageUrl'))
+                },
+                success: function () {
+                    alert('文章添加成功！');
+                },
+                error: function () {
+                    alert('文章添加失败！');
+                }
+            });
+        })
     });
-    $('#submitBlogs').bind('click', function () {
-        if ($('#titleText').val()==='') {
-            alert('标题不能为空！');
-            return;
-        }
-        $.ajax({
-            url: BASE_URL + '/article?type=blogs',
-            type: 'post',
-            dataType: 'json',
-            data: {
-                "title": $('#titleText').val(),
-                "content": contentEditor.document.getBody().getHtml(),
-                "pictureUrl": JSON.parse(localStorage.getItem('CoverImageUrl'))
-            },
-            success: function () {
-                alert('文章添加成功！');
-            },
-            error: function () {
-                alert('文章添加失败！');
-            }
-        });
-    })
-});
+}
