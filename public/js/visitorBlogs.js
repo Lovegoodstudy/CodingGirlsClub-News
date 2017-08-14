@@ -122,6 +122,7 @@ $(document).ready(function () {
                      `;
                     $(window).unbind('scroll');
                 }
+                count++;
             }
         });
 
@@ -129,15 +130,17 @@ $(document).ready(function () {
     pageOne(URL);
     let t;
     let flag = 0;
-    $(window).bind('scroll',function(){
+    if(count > 1){
+        $(window).bind('scroll',function(){
 
-        console.log("flag:"+flag);
-        if(flag>0){
-            clearTimeout(t);
-        }
-        t = setTimeout(show(),500);
-        flag = 1;
-    });
+            console.log("flag:"+flag);
+            if(flag>0){
+                clearTimeout(t);
+            }
+            t = setTimeout(show(),500);
+            flag = 1;
+        });
+    }
     function show(){
         if($(window).scrollTop()+$(window).height()>=$(document).height()){
             ajaxRead();
