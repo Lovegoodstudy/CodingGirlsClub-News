@@ -12,10 +12,10 @@ router.post('/', urlencodedParser, function (req, res) {
     let values = req.body;
     let manage = [];
     manage.push(values);
-    console.log(manage);
+    //console.log(manage);
     req.models.Manager.exists({email: manage[0].email,password: manage[0].password}, function (err, reply) {
         if (err) throw err;
-        console.log(reply);
+        //console.log(reply);
         if(reply===true){
             //req.session.lastPage = '/database'; //每一次访问时，session对象的lastPage会自动的保存或更新内存中的session中去。
             res.send(reply);
