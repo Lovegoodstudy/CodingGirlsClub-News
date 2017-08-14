@@ -20,3 +20,8 @@ function email_weather_existence() {
     //alert(JSON.stringify(emails));
     confirm_email(emails);
 }
+// function get_email() {
+//     var email=$('.confirm_email').val();
+//     return email;
+// }
+// module.exports=get_email();
