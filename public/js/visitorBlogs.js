@@ -129,7 +129,6 @@ $(document).ready(function () {
     pageOne(URL);
     let t;
     let flag = 0;
-
     $(window).bind('scroll',function(){
 
         console.log("flag:"+flag);
