@@ -4,36 +4,40 @@
 
 $(document).ready(function () {
     let count = 1;
-    $.ajax({
-        url: "http://127.0.0.1:8081/blogs?count=1",
-        type: "GET",
-        crossDomain: true,
-        cache: false,
-        beforeSend: function () {
-            console.log('loading...')
-        },
-        success: function (data) {
-            console.log(data)
+    let sy='',sm='',ey='',em='';
+    let URL = `http://127.0.0.1:8081/blogs?count=${count}&sy=${sy}&sm=${sm}&ey=${ey}&em=${em}`;
 
-            let el, li, i,div1,div2;
-            el = document.getElementById('thelist1');
-            div1 = document.createElement('div');
-            div2 = document.createElement('div');
-            div1.appendChild(div2);
-            el.appendChild(div1);
-            div1.setAttribute("class","time-line-content");
-            div1.style.height = `${data.length*188}px`;
-            div2.setAttribute("class","time-line");
-            div2.style.height = `${data.length*191}px`;
+    function pageOne(URL) {
+        $.ajax({
+            url: URL,
+            type: "GET",
+            crossDomain: true,
+            cache: false,
+            beforeSend: function () {
+                console.log('loading...')
+            },
+            success: function (data) {
+                console.log(data);
 
-            for (i = 0; i < data.length; i++) {
-                if(i%2===1){
-                    if (data[i].videoUrl === null) {
+                let el, li, i,div1,div2;
+                el = document.getElementById('thelist1');
+                div1 = document.createElement('div');
+                div2 = document.createElement('div');
+                div1.appendChild(div2);
+                el.appendChild(div1);
+                div1.setAttribute("class","time-line-content");
+                div1.style.height = `${data.length*188}px`;
+                div2.setAttribute("class","time-line");
+                div2.style.height = `${data.length*191}px`;
 
-                        li = document.createElement('li');
-                        li.setAttribute("class","rectangle2");
-                        li.style.marginLeft = '30%';
-                        li.innerHTML = `
+                for (i = 0; i < data.length; i++) {
+                    if(i%2===1){
+                        if (data[i].videoUrl === null) {
+
+                            li = document.createElement('li');
+                            li.setAttribute("class","rectangle2");
+                            li.style.marginLeft = '30%';
+                            li.innerHTML = `
 <div class="row html">
 <div class="col-md-8 col-xs-12">
 <h3><a href="">${data[i].title}</a></h3>
@@ -45,23 +49,23 @@ $(document).ready(function () {
 </div>
 
 `;
-                        /*<div class="html">
-                         <h3><a href="">${data[i].title}</a></h3>
-                         <p>作者：${data[i].author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data[i].date}</span></p>
-                         <p class="content">${data[i].content}</p>
-                         <a href="">READ MORE</a>
-                         </div>*/
-                        el.appendChild(li, el.childNodes[0]);
+                            /*<div class="html">
+                             <h3><a href="">${data[i].title}</a></h3>
+                             <p>作者：${data[i].author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data[i].date}</span></p>
+                             <p class="content">${data[i].content}</p>
+                             <a href="">READ MORE</a>
+                             </div>*/
+                            el.appendChild(li, el.childNodes[0]);
 
-                    } else {
+                        } else {
 
-                    }
-                }else {
-                    if (data[i].videoUrl === null) {
-                        li = document.createElement('li');
-                        li.setAttribute("class","rectangle2");
-                        li.style.marginLeft = '15%';
-                        li.innerHTML = `
+                        }
+                    }else {
+                        if (data[i].videoUrl === null) {
+                            li = document.createElement('li');
+                            li.setAttribute("class","rectangle2");
+                            li.style.marginLeft = '15%';
+                            li.innerHTML = `
 <div class="row html">
 <div class="col-md-8 col-xs-12">
 <h3><a href="">${data[i].title}</a></h3>
@@ -73,27 +77,29 @@ $(document).ready(function () {
 </div>
 `;
 
-                        el.appendChild(li, el.childNodes[0]);
-                    } else {
+                            el.appendChild(li, el.childNodes[0]);
+                        } else {
 
+                        }
                     }
                 }
-            }
-            if(data.length<6){
-                el = document.getElementById('thelist1');
-                li = document.createElement('li');
-                el.appendChild(li, el.childNodes[0]);
-                li.innerHTML = `
+                if(data.length<6){
+                    el = document.getElementById('thelist1');
+                    li = document.createElement('li');
+                    el.appendChild(li, el.childNodes[0]);
+                    li.innerHTML = `
                      <div class="row html">
 <div class="col-md-10" style="margin-top: 20px">
 <p style="text-align: center;color: #01AAED;font-size: 65%">没有更多新闻了:(</p>
 </div>
                      `;
-                $(window).unbind('scroll');
+                    $(window).unbind('scroll');
+                }
             }
-        }
-    });
+        });
 
+    }
+    pageOne(URL);
     let t;
     let flag = 0;
     $(window).bind('scroll',function(){
@@ -129,7 +135,7 @@ $(document).ready(function () {
         count++;
         console.log(count)
         $.ajax({
-            url:`http://127.0.0.1:8081/blogs?count=${count}`,
+            url:URL,
             type:"GET",
             crossDomain:true,
             cache:false,
@@ -266,5 +272,22 @@ $(document).ready(function () {
             complete:function(){console.log('mission acomplete.')},
         });
     }
+
+    $("#filter").click(function (e) {
+        e.preventDefault();
+        sy = $("#startYear").val();
+        sm = $("#startMonth").val();
+        ey = $("#endYear").val();
+        em = $("#endMonth").val();
+        URL = `http://127.0.0.1:8081/blogs?count=${count}&sy=${sy}&sm=${sm}&ey=${ey}&em=${em}`;
+        $("#thelist1").empty();
+        pageOne(URL);
+    });
+
+    $("#show_blogs").click(function () {
+        $("#wrapper1").css("display","block");
+        $("#wrapper").css("display","none");
+        sy='';sm='';ey='';em='';
+    })
 });
 

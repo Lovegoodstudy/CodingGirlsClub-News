@@ -13,6 +13,7 @@ a:hover{
     width: 95%;
     height: 500px;
     margin: 0 auto;
+    position: absolute;
 }
 .html{
     margin-top: 20px;
@@ -230,4 +231,11 @@ a:hover{
     .html img{
         display: none;
     }
+}
+
+#date-filter{
+    position: absolute;
+    left: 15%;
+    bottom: 20px;
+
 }

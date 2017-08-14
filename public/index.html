@@ -28,10 +28,6 @@
 
 </head>
 <body>
-
-
-
-
 <!-- =========================
           LATEST NEWS TABLE  AREA
      ============================== -->
@@ -42,7 +38,6 @@
             <div class="section-heading-white">
                 <H1>LATEST NEWS</H1>
                 <h4>Look up the latest news here.</h4>
-
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a id="show_news">News</a></li>
 
@@ -53,6 +48,30 @@
                 </ul>
             </div>
         </div>
+    </div>
+    <div id="date-filter">
+        <form class="form-inline">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="startYear" style="width: 60px;  text-align: center">
+                    <div class="input-group-addon">年</div>
+                    <input type="text" class="form-control" id="startMonth" style="width: 50px; text-align: center">
+                    <div class="input-group-addon">月</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <span style="font-size: 25px">~</span>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="endYear" style="width: 60px;  text-align: center">
+                    <div class="input-group-addon">年</div>
+                    <input type="text" class="form-control" id="endMonth" style="width: 50px; text-align: center">
+                    <div class="input-group-addon">月</div>
+                </div>
+            </div>
+            <button style="margin-left: 20px" id="filter" class="btn btn-primary">筛选</button>
+        </form>
     </div>
 
 </section>

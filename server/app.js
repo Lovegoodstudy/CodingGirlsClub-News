@@ -74,8 +74,8 @@ app.use('/manage', manageRouter);
 let articleRouter = require('./articleRouter');
 app.use('/article', articleRouter);
 
-let newsAndBlogsRouter = require('./visitorRouter');
-app.use('/', newsAndBlogsRouter);
+let visitorRouter = require('./visitorRouter');
+app.use('/', visitorRouter);
 
 let uploadRouter = require('./uploadRouter');
 app.use('/upload', uploadRouter);
