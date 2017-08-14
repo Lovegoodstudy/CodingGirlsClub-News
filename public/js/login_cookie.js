@@ -16,30 +16,14 @@ function memory_to_session(data) {
         }
     })
 }
-function get_form_session() {
-    $.ajax({
-        type: 'GET',
-        url: 'http://localhost:8081/session/email',
-        crossDomain: true,
-        success: function (data) {
-            debugger
-            var email=data.email;
-            var password=data.password;
-            $('.email').val(email);
-            $('.password').val(password);
-        },
-        fail:function () {
-
-        }
-    })
-}
 window.onload=function () {
-    get_form_session();
+    get_form_cookie();
 }
 function weather_set_cookie() {
     let rem = document.getElementsByClassName('remember_me')[0].checked;
     if (rem) {
         setCookie();
+        //alert('success');
     }
 }
 function setCookie() {
@@ -48,6 +32,12 @@ function setCookie() {
     let password = $('.password').val();
     admin.email = email;
     admin.password = password;
+    document.cookie=JSON.stringify(admin);
     memory_to_session(admin);
+}
+function get_form_cookie() {
+    let admin=JSON.parse(document.cookie);
+    $('.email').val(admin.email);
+    $('.password').val(admin.password);
 }
 //module.exports=get_form_session();

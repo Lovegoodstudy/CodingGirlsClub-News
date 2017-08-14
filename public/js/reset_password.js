@@ -17,21 +17,9 @@ function reset_password(obj) {
         }
     })
 }
-function get_email_form_session() {
-    $.ajax({
-        type: 'GET',
-        url: 'http://localhost:8081/session/email',
-        crossDomain: true,
-        success: function (data) {
-            var email=data.email;
-           reset_password_interface(email);
-        },
-        fail:function () {
 
-        }
-    })
-}
-function reset_password_interface(email) {
+function reset_password_interface() {
+    let email=JSON.parse(document.cookie).email;
     var password={};
     let pwd=$('.password').val();
     let r_pwd=$('.confirm_password').val();
