@@ -7,19 +7,31 @@ function reset_password(obj) {
         dataType:'JSON',
         crossDomain: true,
         success: function (data) {
-            alert(data.message);
+            if (data.message==true){
+                //alert('100');
+                location.href='login.html';
+            }
         },
         fail:function (data) {
 
         }
     })
 }
-function reset_password_interface() {
-    let arr=document.cookie.split(";");
-    let arr1=arr[1].split("=");
-    //alert(arr1[1]);
-    let admin = JSON.parse(arr1[1]);
-    let email=admin.email;
+function get_email_form_session() {
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:8081/session/email',
+        crossDomain: true,
+        success: function (data) {
+            var email=data.email;
+           reset_password_interface(email);
+        },
+        fail:function () {
+
+        }
+    })
+}
+function reset_password_interface(email) {
     var password={};
     let pwd=$('.password').val();
     let r_pwd=$('.confirm_password').val();
