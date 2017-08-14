@@ -13,7 +13,7 @@ router.post('/admin',urlencodedParser,function(req, res) {
         password:admin_re.password,
     };
     req.session.admin = admin;
-    //res.send({message:'密码已记住'});
+    res.send({message:'密码已记住'});
 });
 router.get('/email', urlencodedParser,function(req, res) {
     //console.log(req.session.admin);
@@ -22,6 +22,12 @@ router.get('/email', urlencodedParser,function(req, res) {
         //console.log(admin);
         res.send(admin);
     }
+});
+router.get('/logout',urlencodedParser,function (req,res) {
+    //console.log(req.session.admin);
+    req.session.destroy();
+    //console.log(req.session.admin);
+    res.send('true');
 });
 module.exports=router;
 
