@@ -139,24 +139,23 @@ $(document).ready(function () {
                      `;
                     $(window).unbind('scroll');
                 }
-                count++;
             }
         });
     }
     pageOne(URL);
     let t;
     let flag = 0;
-    if(count > 1){
-        $(window).bind('scroll',function(){
 
-            console.log("flag:"+flag);
-            if(flag>0){
-                clearTimeout(t);
-            }
-            t = setTimeout(show(),500);
-            flag = 1;
-        });
-    }
+    $(window).bind('scroll',function(){
+
+        console.log("flag:"+flag);
+        if(flag>0){
+            clearTimeout(t);
+        }
+        t = setTimeout(show(),500);
+        flag = 1;
+    });
+
     function show(){
         if($(window).scrollTop()+$(window).height()>=$(document).height()){
             ajaxRead();
@@ -178,7 +177,7 @@ $(document).ready(function () {
     // }
 
     function ajaxRead() {
-        // count++;
+        count++;
         console.log("count="+count)
          $.ajax({
              url:URL,
