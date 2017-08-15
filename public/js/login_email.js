@@ -1,5 +1,4 @@
 function confirm_email(obj) {
-    //alert('success');
     $.ajax({
         type: 'POST',
         url: 'http://localhost:8081/email',
@@ -17,11 +16,5 @@ function confirm_email(obj) {
 function email_weather_existence() {
     let emails={};
     emails.email=$('.confirm_email').val();
-    //alert(JSON.stringify(emails));
     confirm_email(emails);
 }
-// function get_email() {
-//     var email=$('.confirm_email').val();
-//     return email;
-// }
-// module.exports=get_email();
