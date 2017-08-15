@@ -72,3 +72,23 @@
     display: block;
     float: right;
 }
+.login_box{
+    width: 80px;
+    height: 80px;
+    background-color: #4cae4c;
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    border-radius: 40px;
+    text-align: center;
+    line-height: 80px;
+    box-shadow: 2px 2px 2px 2px green;
+    opacity: 0.5;
+    color: white;
+}
+.login_box:hover{
+    border: 1px solid dodgerblue;
+    background-color: white;
+    color: green;
+}
+
