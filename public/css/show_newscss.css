@@ -220,6 +220,12 @@ a:hover{
         width: 0;
         height: 0;
     }
+    #date-filter{
+        width: 40%;
+    }
+    #date-filter span{
+        margin-left: 10%;
+    }
 }
 @media (max-width: 425px) {
     .html{
@@ -233,9 +239,9 @@ a:hover{
     }
 }
 
-#date-filter{
-    position: absolute;
-    left: 15%;
-    bottom: 20px;
+/*#date-filter{*/
+    /*position: absolute;*/
+    /*left: 15%;*/
+    /*bottom: 20px;*/
 
-}
+/*}*/
