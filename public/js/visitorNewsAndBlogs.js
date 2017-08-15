@@ -28,10 +28,10 @@ $(document).ready(function () {
 function ajaxBody(type,sy,sm,ey,em) {
     let count = 1;
     let URL = `http://127.0.0.1:8081/${type}?count=${count}&sy=${sy}&sm=${sm}&ey=${ey}&em=${em}`;
-    pageOne(URL,"thelist");
+    pageOne(URL,type,"thelist");
     $(window).bind("scroll",function () {
         if($(window).scrollTop()+$(window).height()>=$(document).height()){
-            ajaxRead();
+            ajaxRead(type);
         }
     });
     function ajaxRead() {
@@ -52,18 +52,18 @@ function ajaxBody(type,sy,sm,ey,em) {
                     makeLines(data,"thelist","time-line-content2","time-line2");
                     for(let i=0; i<data.length; i++){
                         if(i%2 ===1){
-                            makeRightLi(data[i],"rectangle1","thelist","30%");
+                            makeRightLi(data[i],type,"rectangle1","thelist","30%");
                         }else{
-                            makeRightLi(data[i],"rectangle1","thelist","15%");
+                            makeRightLi(data[i],type,"rectangle1","thelist","15%");
                         }
                     }
                 }else {
                     makeLines(data,"thelist","time-line-content","time-line");
                     for(let i=0; i<data.length; i++){
                         if(i%2 ===1){
-                            makeLeftLi(data[i],"rectangle2","thelist","30%");
+                            makeLeftLi(data[i],type,"rectangle2","thelist","30%");
                         }else{
-                            makeLeftLi(data[i],"rectangle2","thelist","15%");
+                            makeLeftLi(data[i],type,"rectangle2","thelist","15%");
                         }
                     }
                 }
@@ -75,7 +75,7 @@ function ajaxBody(type,sy,sm,ey,em) {
     }
 }
 
-function pageOne(URL,theListId) {
+function pageOne(URL,type,theListId) {
     $.ajax({
         url:URL,
         type:"GET",
@@ -85,9 +85,9 @@ function pageOne(URL,theListId) {
             makeLines(data,theListId,"time-line-content","time-line");
             for(let i=0; i<data.length; i++){
                 if(i%2 ===1){
-                    makeLeftLi(data[i],"rectangle2",theListId,"30%");
+                    makeLeftLi(data[i],type,"rectangle2",theListId,"30%");
                 }else{
-                    makeLeftLi(data[i],"rectangle2",theListId,"15%");
+                    makeLeftLi(data[i],type,"rectangle2",theListId,"15%");
                 }
             }
             if(data.length<6){
@@ -110,39 +110,39 @@ function makeLines(data,theListId,timeLineContent,timeLine) {
     div2.style.height = `${data.length*191}px`;
 }
 
-function makeLeftLi(data,rectangle,theListId,rate) {
+function makeLeftLi(data,type,rectangle,theListId,rate) {
     let li = document.createElement('li');
     li.setAttribute("class",rectangle);
     li.style.marginLeft = rate;
     li.innerHTML = `
         <div class="row html">
         <div class="col-md-8 col-xs-12">
-        <h3><a href="">${data.title}</a></h3>
+        <h3><a href="../detailWebpage.html?type=${type}&${data.id}">${data.title}</a></h3>
         <p>作者：${data.author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data.date}</span></p>
-        <p class="content">${data.content}</p>
-        <a href="">READ MORE</a>
+        <p class="content">${data.introduction}</p>
+        <a href="../detailWebpage.html?type=${type}&${data.id}">READ MORE</a>
         </div>`;
     if(data.pictureUrl !== null){
-        li.innerHTML += `<a href="" class="col-md-4 img"><img src="${data.pictureUrl}"></a>`;
+        li.innerHTML += `<a href="../detailWebpage.html?type=${type}&${data.id}" class="col-md-4 img"><img src="${data.pictureUrl}"></a>`;
     }
     li.innerHTML += `</div>`;
     $(`#${theListId}`).append(li);
 }
 
-function makeRightLi(data,rectangle,theListId,rate) {
+function makeRightLi(data,type,rectangle,theListId,rate) {
     let li = document.createElement('li');
     li.setAttribute("class",rectangle);
     li.style.marginRight = rate;
     li.innerHTML = `
         <div class="row html">
         <div class="col-md-8 col-xs-12">
-        <h3><a href="">${data.title}</a></h3>
+        <h3><a href="../detailWebpage.html?type=${type}&${data.id}">${data.title}</a></h3>
         <p>作者：${data.author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data.date}</span></p>
-        <p class="content">${data.content}</p>
-        <a href="">READ MORE</a>
+        <p class="content">${data.introduction}</p>
+        <a href="../detailWebpage.html?type=${type}&${data.id}">READ MORE</a>
         </div>`;
     if(data.pictureUrl !== null){
-        li.innerHTML += `<a href="" class="col-md-4 img"><img src="${data.pictureUrl}"></a>`;
+        li.innerHTML += `<a href="../detailWebpage.html?type=${type}&${data.id}" class="col-md-4 img"><img src="${data.pictureUrl}"></a>`;
     }
     li.innerHTML += `</div>`;
     $(`#${theListId}`).append(li);
