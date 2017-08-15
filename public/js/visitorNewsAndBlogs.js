@@ -24,7 +24,6 @@ $(document).ready(function () {
         ajaxBody(type,sy,sm,ey,em);
     });
 });
-
 function ajaxBody(type,sy,sm,ey,em) {
     let count = 1;
     let URL = `http://127.0.0.1:8081/${type}?count=${count}&sy=${sy}&sm=${sm}&ey=${ey}&em=${em}`;
@@ -114,9 +113,32 @@ function makeLeftLi(data,type,rectangle,theListId,rate) {
     let li = document.createElement('li');
     li.setAttribute("class",rectangle);
     li.style.marginLeft = rate;
-    li.innerHTML = `
+    /*li.innerHTML = `
+        <div class="row html">`;*/
+    if(data.pictureUrl !== null){
+        li.innerHTML = `
         <div class="row html">
         <div class="col-md-8 col-xs-12">
+        <h3><a href="../detailWebpage.html?type=${type}&id=${data.id}">${data.title}</a></h3>
+        <p>作者：${data.author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data.date}</span></p>
+        <p class="content">${data.introduction}</p>
+        <a href="../detailWebpage.html?type=${type}&id=${data.id}">READ MORE</a>
+        </div>
+        <a href="../detailWebpage.html?type=${type}&id=${data.id}" class="col-md-4 img"><img src="${data.pictureUrl}"></a>
+        </div>
+        `;
+    }else{
+        li.innerHTML = `
+        <div class="row html">
+        <div class="col-md-12 col-xs-12">
+        <h3><a href="../detailWebpage.html?type=${type}&id=${data.id}">${data.title}</a></h3>
+        <p>作者：${data.author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data.date}</span></p>
+        <p class="content">${data.introduction}</p>
+        <a href="../detailWebpage.html?type=${type}&id=${data.id}">READ MORE</a>
+        </div>
+        </div>`;
+    }
+    /*li.innerHTML +=`
         <h3><a href="../detailWebpage.html?type=${type}&id=${data.id}">${data.title}</a></h3>
         <p>作者：${data.author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data.date}</span></p>
         <p class="content">${data.introduction}</p>
@@ -125,7 +147,7 @@ function makeLeftLi(data,type,rectangle,theListId,rate) {
     if(data.pictureUrl !== null){
         li.innerHTML += `<a href="../detailWebpage.html?type=${type}&id=${data.id}" class="col-md-4 img"><img src="${data.pictureUrl}"></a>`;
     }
-    li.innerHTML += `</div>`;
+    li.innerHTML += `</div>`;*/
     $(`#${theListId}`).append(li);
 }
 
@@ -133,7 +155,30 @@ function makeRightLi(data,type,rectangle,theListId,rate) {
     let li = document.createElement('li');
     li.setAttribute("class",rectangle);
     li.style.marginRight = rate;
-    li.innerHTML = `
+    if(data.pictureUrl !== null){
+        li.innerHTML = `
+        <div class="row html">
+        <div class="col-md-8 col-xs-12">
+        <h3><a href="../detailWebpage.html?type=${type}&id=${data.id}">${data.title}</a></h3>
+        <p>作者：${data.author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data.date}</span></p>
+        <p class="content">${data.introduction}</p>
+        <a href="../detailWebpage.html?type=${type}&id=${data.id}">READ MORE</a>
+        </div>
+        <a href="../detailWebpage.html?type=${type}&id=${data.id}" class="col-md-4 img"><img src="${data.pictureUrl}"></a>
+        </div>
+        `;
+    }else{
+        li.innerHTML = `
+        <div class="row html">
+        <div class="col-md-12 col-xs-12">
+        <h3><a href="../detailWebpage.html?type=${type}&id=${data.id}">${data.title}</a></h3>
+        <p>作者：${data.author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data.date}</span></p>
+        <p class="content">${data.introduction}</p>
+        <a href="../detailWebpage.html?type=${type}&id=${data.id}">READ MORE</a>
+        </div>
+        </div>`;
+    }
+    /*li.innerHTML = `
         <div class="row html">
         <div class="col-md-8 col-xs-12">
         <h3><a href="../detailWebpage.html?type=${type}&id=${data.id}">${data.title}</a></h3>
@@ -144,7 +189,7 @@ function makeRightLi(data,type,rectangle,theListId,rate) {
     if(data.pictureUrl !== null){
         li.innerHTML += `<a href="../detailWebpage.html?type=${type}&id=${data.id}" class="col-md-4 img"><img src="${data.pictureUrl}"></a>`;
     }
-    li.innerHTML += `</div>`;
+    li.innerHTML += `</div>`;*/
     $(`#${theListId}`).append(li);
 }
 

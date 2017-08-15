@@ -51,7 +51,14 @@ a:hover{
     border: 1px solid #d6d6d6;
     box-shadow: 2px 2px 2px #d6d6d6;
     padding: 0 10px 20px 20px;
+    /*transition: width 1s,height 1s,background-color 1s,font-size 1s;*/
 }
+/*.rectangle1:hover{
+    width: 60%;
+    height: 200px;
+    background-color: #eeeeee;
+    font-size: 140%;
+}*/
 /*多出一行省略*/
 .rectangle1 .content{
     overflow:hidden;
@@ -80,7 +87,14 @@ a:hover{
     border: 1px solid #d6d6d6;
     box-shadow: 2px 2px 2px #d6d6d6;
     padding: 0 10px 20px 20px;
+    /*transition: width 1s,height 1s,background-color 1s,font-size 1s;*/
 }
+/*.rectangle2:hover{
+    width: 60%;
+    height: 200px;
+    background-color: #eeeeee;
+    font-size: 140%;
+}*/
 /*多出一行省略*/
 .rectangle2 .content{
     overflow:hidden;
@@ -153,15 +167,15 @@ a:hover{
     width: 51%;
     border-left: 5px solid #3fe5e0;
 }
-#gotop{
-    display:none;
+/*#gotop{
+    !*display:none;*!
     width:40px;
     height:40px;
     position:fixed;
     right:32px;
     bottom:50px;
-    background:url(../image/totop.png) no-repeat -76px -4px;
-}
+    !*background:url(../image/totop.png) no-repeat -76px -4px;*!
+}*/
 @media (max-width: 1024px) {
     .html img{
         margin-top: 5px;
