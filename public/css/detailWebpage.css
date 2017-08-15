@@ -20,3 +20,79 @@
     padding-bottom: 40px;
 }
 
+.share-tools{
+    float: left;
+    position: fixed;
+    top: 75px;
+    left: 100px;
+}
+
+#share-body{
+    width: 110px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    padding: 15px 20px;
+}
+
+#share-head{
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#share-head:before {
+    position: absolute;
+    top: 13px;
+    left: 0;
+    width: 4px;
+    height: 25px;
+    content: "";
+    background-color: #ffc400;
+}
+
+#weibo span{
+    font-size: 16px;
+    position: absolute;
+    top: 58px;
+    left:50px;
+    padding-left: 10px;
+    width: 100%;
+    /*content: "\5FAE\535A";*/
+    color: #bbb;
+}
+
+#qzone span{
+    font-size: 16px;
+    position: absolute;
+    top: 102px;
+    left: 50px;
+    padding-left: 10px;
+    width: 100%;
+        /*content: "Qzone";*/
+    color: #bbb;
+}
+
+#wechat span {
+    font-size: 16px;
+    position: absolute;
+    top: 136px;
+    left: 50px;
+    padding-left: 10px;
+    width: 100%;
+    /*content: "\5FAE\4FE1";*/
+    color: #bbb;
+}
+
+.share{
+    margin-bottom: 3px;
+}
+
+#qrcode-content{
+    position: absolute;
+    top: 30px;
+    left: -20px;
+    z-index: 1;
+    padding: 10px;
+    background-color: #f9f9f9;
+}

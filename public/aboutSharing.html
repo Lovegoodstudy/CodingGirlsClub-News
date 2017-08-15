@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./jquery-3.2.1.js"></script>
+    <link rel="stylesheet" href="./css/detailWebpage.css">
+    <script>
+        function weibo() {
+            let href = `http://service.weibo.com/share/share.php?title=${$("#title").text()}&url=${window.location.href}`;
+            window.open(href);
+//            window.open(`http://service.weibo.com/share/share.php?title=4399小游戏&url=http://localhost:8081`);
+        }
+        function qzone(){
+            let p = {
+                url: window.location.href,
+                showcount:'0',/*是否显示分享总数,显示：'1'，不显示：'0' */
+                desc:'大家快来看，这篇文章很有趣哦！',/*默认分享理由(可选)*/
+                summary:'',/*分享摘要(可选)*/
+                title:$("#title").text(),/*分享标题(可选)*/
+                site:'CodingGirlsClub',/*分享来源 如：腾讯网(可选)*/
+                pics:'', /*分享图片的路径(可选)*/
+                style:'203',
+                width:98,
+                height:22
+            };
+            let href = `http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?title=${p.title}&url=${p.url}&site=${p.site}&desc=${p.desc}`;
+            window.open(href);
+        }
+        $(document).ready(function () {
+            $("#wechat").onmouseover(function () {
+                $("#qrcode").css("display","block");
+            })
+            .onmouseout(function () {
+                $("#qrcode").css("display","none");
+            });
+        })
+    </script>
+    <title>Title</title>
+</head>
+<body>
+    <div class="share-tools">
+        <div id="share-body">
+            <div id="share-head">
+                分享
+            </div>
+            <div id="share-content">
+                <div class="share" id="weibo">
+                    <a href="#" onclick="weibo()"><img src="./image/weibo.png" alt="weibo"><span>微博</span></a>
+                </div>
+                <div class="share" id="qzone">
+                    <a href="#" onclick="qzone()"><img src="./image/qzone.png" alt="qzone"><span>Qzone</span></a>
+                </div>
+                <div class="share" id="wechat">
+                    <img src="./image/wechat.png" alt="wechat"><span>微信</span>
+                </div>
+            </div>
+            <div id="qrcode" style="display: block;">
+                <div id="qrcode-content">
+
+                </div>
+                <img src="" alt="logo" id="logo">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
