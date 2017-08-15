@@ -1,7 +1,7 @@
 
 "use strict";
 function memory_to_session(data) {
-    debugger;
+    //debugger;
     $.ajax({
         type: 'POST',
         url: 'http://localhost:8081/session/admin',

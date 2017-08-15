@@ -11,7 +11,7 @@ if (sessionStorage.user !== "true") {
                 layui.use(['laypage', 'layer'], function () {
                     let laypage = layui.laypage;
                     let layer = layui.layer;
-                    let nums = 3; //每页出现的数据量//模拟渲染
+                    let nums = 5; //每页出现的数据量//模拟渲染
                     let render = function (data, curr) {
                         let arr = [];
                         $('#newsList').empty();
@@ -22,7 +22,7 @@ if (sessionStorage.user !== "true") {
                             let item1 = `
 <tr>
     <th class="common">
-    <a href="detail.html?artical=${thisData[i].id}"><span>${thisData[i].title}</span></a>
+    <a href="detailWebpage.html?type=news&id=${thisData[i].id}"><span>${thisData[i].title}</span></a>
     <h4 style="width:550px;overflow: hidden;white-space:nowrap;text-overflow:ellipsis;">
     ${thisData[i].introduction}</h4>
     </th>
@@ -61,7 +61,7 @@ if (sessionStorage.user !== "true") {
                 layui.use(['laypage', 'layer'], function () {
                     let laypage = layui.laypage;
                     let layer = layui.layer;
-                    let nums = 3; //每页出现的数据量//模拟渲染
+                    let nums = 5; //每页出现的数据量//模拟渲染
                     let render = function (data, curr) {
                         let arr = [];
                         $('#blogsList').empty();
@@ -72,7 +72,7 @@ if (sessionStorage.user !== "true") {
                             let item1 = `
 <tr>
     <th class="common">
-    <a href="detail.html?artical=${thisData[i].id}"><span>${thisData[i].title}</span></a>
+    <a href="detailWebpage.html?type=blogs&id=${thisData[i].id}"><span>${thisData[i].title}</span></a>
     <h4 style="width:550px;overflow: hidden;white-space:nowrap;text-overflow:ellipsis;">
     ${thisData[i].introduction}</h4>
     </th>
@@ -101,3 +101,6 @@ if (sessionStorage.user !== "true") {
         })
     });
 }
+$(function (){
+    $("#example").popover();
+});
