@@ -117,13 +117,13 @@ function makeLeftLi(data,type,rectangle,theListId,rate) {
     li.innerHTML = `
         <div class="row html">
         <div class="col-md-8 col-xs-12">
-        <h3><a href="../detailWebpage.html?type=${type}&${data.id}">${data.title}</a></h3>
+        <h3><a href="../detailWebpage.html?type=${type}&id=${data.id}">${data.title}</a></h3>
         <p>作者：${data.author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data.date}</span></p>
         <p class="content">${data.introduction}</p>
-        <a href="../detailWebpage.html?type=${type}&${data.id}">READ MORE</a>
+        <a href="../detailWebpage.html?type=${type}&id=${data.id}">READ MORE</a>
         </div>`;
     if(data.pictureUrl !== null){
-        li.innerHTML += `<a href="../detailWebpage.html?type=${type}&${data.id}" class="col-md-4 img"><img src="${data.pictureUrl}"></a>`;
+        li.innerHTML += `<a href="../detailWebpage.html?type=${type}&id=${data.id}" class="col-md-4 img"><img src="${data.pictureUrl}"></a>`;
     }
     li.innerHTML += `</div>`;
     $(`#${theListId}`).append(li);
@@ -136,13 +136,13 @@ function makeRightLi(data,type,rectangle,theListId,rate) {
     li.innerHTML = `
         <div class="row html">
         <div class="col-md-8 col-xs-12">
-        <h3><a href="../detailWebpage.html?type=${type}&${data.id}">${data.title}</a></h3>
+        <h3><a href="../detailWebpage.html?type=${type}&id=${data.id}">${data.title}</a></h3>
         <p>作者：${data.author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data.date}</span></p>
         <p class="content">${data.introduction}</p>
-        <a href="../detailWebpage.html?type=${type}&${data.id}">READ MORE</a>
+        <a href="../detailWebpage.html?type=${type}&id=${data.id}">READ MORE</a>
         </div>`;
     if(data.pictureUrl !== null){
-        li.innerHTML += `<a href="../detailWebpage.html?type=${type}&${data.id}" class="col-md-4 img"><img src="${data.pictureUrl}"></a>`;
+        li.innerHTML += `<a href="../detailWebpage.html?type=${type}&id=${data.id}" class="col-md-4 img"><img src="${data.pictureUrl}"></a>`;
     }
     li.innerHTML += `</div>`;
     $(`#${theListId}`).append(li);
