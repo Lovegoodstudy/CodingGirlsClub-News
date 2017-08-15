@@ -14,11 +14,12 @@ router.post('/', urlencodedParser, function (req, res) {
     console.log(req.file);
     if (req.query.type === 'news') {
         req.models.News.create({
+            videoUrl:req.body.videoUrl,
             pictureUrl: req.body.pictureUrl,
             title: req.body.title,
             author:req.body.author,
             content: req.body.content,
-            date: moment().format('YYYYMMDD')
+            date: moment().format('YYYY-MM-DD')
         }, function (err, result) {
             if (err) {
                 console.log(err);
@@ -30,11 +31,12 @@ router.post('/', urlencodedParser, function (req, res) {
     }
     if (req.query.type === 'blogs') {
         req.models.Blogs.create({
+            videoUrl:req.body.videoUrl,
             pictureUrl: req.body.pictureUrl,
             title: req.body.title,
             author:req.body.author,
             content: req.body.content,
-            date: moment().format('YYYYMMDD')
+            date: moment().format('YYYY-MM-DD')
         }, function (err, result) {
             if (err) {
                 res.status(400).send("博客创建失败");
