@@ -46,8 +46,26 @@ router.post('/', urlencodedParser, function (req, res) {
     }
 });
 router.get('/', function (req, res) {
-    let form = fs.readFileSync('../public/addArticle.html', {encoding: 'utf8'});
-    res.send(form);
+    // console.log(req.query.type);
+    // console.log(req.query.id);
+    if (req.query.type === 'news') {
+        req.models.News.get(req.query.id, function (err, result) {
+            if (err) {
+                return
+            }
+            res.send(result);
+        })
+    }
+    if (req.query.type === 'blogs'){
+        req.models.Blogs.get(req.query.id, function (err, result) {
+            if(err) {
+                return
+            }
+            res.send(result);
+        })
+    }
+    //let form = fs.readFileSync('../public/addArticle.html', {encoding: 'utf8'});
+    //res.send(form);
 });
 
 module.exports = router;

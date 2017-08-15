@@ -1,68 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>文章详细页面</title>
+    <title>查看文章</title>
     <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/style.css">
-
-    <script src="./js/detailWebpage.js"></script>
-
+    <link rel="stylesheet" href="./css/addArticle.css">
+    <script type="text/javascript" src="./ckeditor/ckeditor.js"></script>
+    <script src="./jquery-3.2.1.js"></script>
+    <script src="./bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <!--<script type="text/javascript" src="./js/detailWebpage.js"></script>-->
     <style>
-        body {
-            background-color: lightgrey;
+        body{
+            background-color: #80808080;
         }
     </style>
+    <script>
+        const BASE_URL = "http://localhost:8081";
+
+        function UrlSearch()
+        {
+            let name, value;
+            let str = location.href; //取得整个地址栏
+            let num = str.indexOf("?");
+            str = str.substr(num + 1); //取得所有参数   stringvar.substr(start [, length ]
+
+            let arr = str.split("&"); //各个参数放到数组里
+            for (let i = 0; i < arr.length; i++) {
+                num = arr[i].indexOf("=");
+                if (num > 0) {
+                    name = arr[i].substring(0, num);
+                    value = arr[i].substr(num + 1);
+                    this[name] = value;
+                }
+            }
+        }
+
+        $(document).ready(function () {
+            let request = new UrlSearch();
+            //console.log(request);
+            $.ajax({
+                url: BASE_URL + `/article?type=${request.type}&id=${request.id}`,
+                type: 'get',
+                success : function(result){
+                    loadDataOnHtml(result);
+                   // console.log(result);
+                }
+            })
+        })
+
+        function loadDataOnHtml(data) {
+            if(data.pictureUrl) {
+                $("#mainPicture").append(`${data.pictureUrl}`);
+            }
+            $("#title").html(data.title);
+            $("#author").html(data.author);
+            $("#date").html(data.date);
+
+            $("#content").append(`<p> ${data.content}</p>`);
+
+        }
+    </script>
 </head>
-<body id="detail">
-
-<div style="height: 60px">
+<body>
+<div class="page-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>View an article</h2>
+            </div>
+            <div class="col-sm-6 text-right">
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Login</li>
+                </ol>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="container" id="movieContents" style="background-color: #efebeb">
+
+<div class="space70"></div>
+
+<div class="container article" style="background-color: #bfbfbf">
+
     <div class="row">
+        <h2 class="col-lg-12" id="title" style="text-align: center"></h2>
+
+    <!--<FONT style="FONT-SIZE: 100pt; FONT-FAMILY: 华文行楷," color=#ff0000></FONT>-->
+
         <!--封面图片-->
-        <div class="col-lg-3 col-md-3 col-sm-3" id="mainImage">
-        </div>
-        <!--详细信息-->
-        <div class="col-lg-4 col-md-4 col-sm-4" id="detailInfo">
-            <h1 id="movieName" style="font-style: oblique"><b></b></h1>
-            <br>
-            <small> 导演:</small>
-            <span id="directors"></span><br>
-            <small> 演员:</small>
-            <span id="actors"></span><br>
-            <small> 类型:</small>
-            <span id="type"></span><br>
-            <small> 上映日期:</small>
-            <span id="releasedTime"></span>
-        </div>
-        <div class="col-lg-1 col-md-1 col-sm-1">
-            <hr align="right" style="width:2px;height:200px; " color="#ada9a9">
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4" id="commentsScore">
-            <h3 style="color: #007722">评分</h3>
-            <p style="text-align: left" class="grades"></p>
-        </div>
-    </div>
-    <!--剧情简介-->
-    <hr class="separateBeforeSummary">
-    <div class="row">
-        <h3>
-            <pre>   剧情简介</pre>
-        </h3>
-        <div class="caption" id="summary" style="padding: 20px">
-        </div>
-    </div>
-    <!--影评-->
-    <hr class="separateBeforeComments">
-    <div class="row">
-        <h3>
-            <pre>   影评</pre>
-        </h3>
-    </div>
-    <div class="row" id="comments">
+
+        <div class="col-lg-10 col-md-10 col-sm-10" id="author" style="text-align: right"></div>
+
+        <div class="col-lg-2 col-md-2 col-sm-2" id="date" style="text-align: center"></div>
+
+
+
     </div>
 
+    <div class="col-lg-12 col-md-12 col-sm-12" id="mainPicture" style="text-align: center"></div>
+
+    <div class="col-lg-12" id="content" ></div>
+
+
+
 </div>
+
 </body>
 </html>

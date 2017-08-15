@@ -1,0 +1,23 @@
+.page-breadcrumb {
+    padding: 40px;
+    background-color: #209b60;
+}
+.page-breadcrumb h2 {
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+.page-breadcrumb .breadcrumb {
+    padding-top: 10px;
+    background-color: transparent;
+}
+.space70 {
+    height: 70px;
+}
+
+.article {
+    /*padding-left: 10%;*/
+    /*padding-right: 10%;*/
+    width: 70%;
+}
+
