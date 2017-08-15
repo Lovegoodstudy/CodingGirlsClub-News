@@ -78,7 +78,7 @@
         });
 
         function loadDataOnHtml(data) {
-            if(data.videoUrl !== null){
+            if(data.videoUrl !== ""){
                 $("#mainVideo").append(`<video src="${data.videoUrl}" controls></video>`);
                 $("#title").html(data.title);
                 $("#author").html(data.author);
