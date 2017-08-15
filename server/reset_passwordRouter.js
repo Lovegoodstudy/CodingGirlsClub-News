@@ -11,7 +11,6 @@ router.post('/',urlencodedParser,function (req,res) {
         results[0].password=password;
         results[0].save(function (err) {
             if (!err) {
-                //console.log(err);
                 res.send({message:true});
             }
         })

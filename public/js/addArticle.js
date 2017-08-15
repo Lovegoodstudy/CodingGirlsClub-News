@@ -8,6 +8,7 @@ if (sessionStorage.user !== "true") {
                 alert('标题不能为空！');
                 return;
             }
+            //console.log(contentEditor.document.getBody().getText());
             $.ajax({
                 url: BASE_URL + '/article?type=news',
                 type: 'post',
@@ -16,7 +17,9 @@ if (sessionStorage.user !== "true") {
                     "title": $('#titleText').val(),
                     "author":$('#authorText').val(),
                     "content": contentEditor.document.getBody().getHtml(),
-                    "pictureUrl": JSON.parse(localStorage.getItem('CoverImageUrl'))
+                    "pictureUrl": JSON.parse(localStorage.getItem('CoverImageUrl')),
+                    "videoUrl":JSON.parse(localStorage.getItem('videoUrl')),
+                    "introduction":contentEditor.document.getBody().getText()
                 },
                 success: function () {
                     alert('文章添加成功！');
@@ -39,7 +42,9 @@ if (sessionStorage.user !== "true") {
                     "title": $('#titleText').val(),
                     "author":$('#authorText').val(),
                     "content": contentEditor.document.getBody().getHtml(),
-                    "pictureUrl": JSON.parse(localStorage.getItem('CoverImageUrl'))
+                    "pictureUrl": JSON.parse(localStorage.getItem('CoverImageUrl')),
+                    "videoUrl":JSON.parse(localStorage.getItem('videoUrl')),
+                    "introduction":contentEditor.document.getBody().getText()
                 },
                 success: function () {
                     alert('文章添加成功！');

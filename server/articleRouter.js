@@ -19,6 +19,7 @@ router.post('/', urlencodedParser, function (req, res) {
             title: req.body.title,
             author:req.body.author,
             content: req.body.content,
+            introduction:req.body.introduction,
             date: moment().format('YYYY-MM-DD')
         }, function (err, result) {
             if (err) {
@@ -36,6 +37,7 @@ router.post('/', urlencodedParser, function (req, res) {
             title: req.body.title,
             author:req.body.author,
             content: req.body.content,
+            introduction:req.body.introduction,
             date: moment().format('YYYY-MM-DD')
         }, function (err, result) {
             if (err) {
