@@ -43,7 +43,8 @@ app.use(orm.express(`sqlite:///${appRoot}database.db`, {
             pictureUrl: String,
             videoUrl: String,
             date: String,
-            author: String
+            author: String,
+            introduction:String
         });
         models.Blogs = db.define("blogs", {
             id: Number,
@@ -52,7 +53,8 @@ app.use(orm.express(`sqlite:///${appRoot}database.db`, {
             pictureUrl: String,
             videoUrl: String,
             date: String,
-            author: String
+            author: String,
+            introduction:String
         });
         next();
     }

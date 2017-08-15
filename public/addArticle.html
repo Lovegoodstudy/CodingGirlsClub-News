@@ -11,6 +11,7 @@
     <script type="text/javascript" src="./js/addArticle.js"></script>
     <script type="text/javascript" src="layer/layui.js"></script>
     <script type="text/javascript" src="js/layuiUploadCoverImage.js"></script>
+    <script type="text/javascript" src="js/layuiUploadVideo.js"></script>
     <script>localStorage.clear();</script>
 </head>
 <body>
@@ -46,45 +47,90 @@
                        aria-describedby="basic-addon1">
             </div>
         </div>
-        <button class="btn btn-default" data-toggle="modal" data-target="#myModal"
-                onclick="setLayuiUploadImage()" style="display: inline-block">
-            添加封面图片
-        </button>
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            &times;
-                        </button>
-                        <h4 class="modal-title" id="myModalLabel">添加封面图片</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="site-demo-upload">
-                            <div>
-                                <img class="site-picture" id="LAY_demo_upload" src="">
-                            </div>
-                            <div class="site-demo-upbar">
-                                <div class="layui-box layui-upload-button">
-                                    <form target="layui-upload-iframe" method="get" key="set-mine"
-                                          enctype="multipart/form-data">
-                                        <input type="file" name="file" class="layui-upload-file" id="test">
-                                    </form>
-                                    <span class="layui-upload-icon"><i class="layui-icon"></i>上传图片</span>
+        <div style="display: inline-block">
+            <button class="btn btn-default" data-toggle="modal" data-target="#addPictureModal"
+                    onclick="setLayuiUploadImage()" style="display: inline-block">
+                添加封面图片
+            </button>
+            <div class="modal fade" id="addPictureModal" tabindex="-1" role="dialog"
+                 aria-labelledby="myModalLabelPicture"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="myModalLabelPicture">添加封面图片</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="site-demo-upload">
+                                <div>
+                                    <img class="site-picture" id="LAY_demo_upload_picture" src="">
+                                </div>
+                                <div class="site-demo-upbar">
+                                    <div class="layui-box layui-upload-button">
+                                        <form target="layui-upload-iframe" method="get" key="set-mine"
+                                              enctype="multipart/form-data">
+                                            <input type="file" name="file" class="layui-upload-file" id="testPicture">
+                                        </form>
+                                        <span class="layui-upload-icon"><i class="layui-icon"></i>上传图片</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-                        </button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"
-                                onclick="saveCoverImageUrl();">保存封面
-                        </button>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                    onclick="saveCoverImageUrl();">保存封面
+                            </button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+        </div>
+        <div style="display: inline-block">
+            <button class="btn btn-default" data-toggle="modal" data-target="#addVideoModal"
+                    onclick="setLayuiUploadVideo()" style="display: inline-block">
+                添加视频
+            </button>
+            <div class="modal fade" id="addVideoModal" tabindex="-1" role="dialog"
+                 aria-labelledby="myModalLabelVideo"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="myModalLabelVideo">添加视频</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="site-demo-upload">
+                                <div>
+                                    <video class="site-video" id="LAY_demo_upload_video" controls="controls" src=""></video>
+                                </div>
+                                <div class="site-demo-upbar">
+                                    <div class="layui-box layui-upload-button">
+                                        <form target="layui-upload-iframe" method="get" key="set-mine"
+                                              enctype="multipart/form-data">
+                                            <input type="file" name="file" lay-type="video" class="layui-upload-file" id="testVideo">
+                                        </form>
+                                        <span class="layui-upload-icon"><i class="layui-icon"></i>上传视频</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                    onclick="saveVideoUrl();">保存封面
+                            </button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
         </div>
     </div>
     <div class="space15"></div>
