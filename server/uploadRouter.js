@@ -55,6 +55,29 @@ router.post('/coverImage', function (req, res, next) {
     }
 });
 
+router.post('/video', function (req, res, next) {
+    let moment = require('moment');
+    let folder = moment().format('YYYYMMDD');
+    let dirname = __dirname.replace("/server", '/public/upload/' + folder);
+    //console.log(req);
+    if (mkdirsSync(dirname, '0777')) {
+        let form = new formidable.IncomingForm();
+        form.encoding = "utf-8";
+        form.uploadDir = dirname;
+        form.maxFontSize = 50 * 1024 * 1024;
+        form.parse(req, function (err, fields, files) {
+            if (err) return;
+            let fileName = moment().format() + '-' + files.file.name;
+            var newPath = form.uploadDir + "/" + fileName;
+
+            fs.rename(files.file.path, newPath, function () {
+                let url = '/upload/' + folder + "/" + fileName;
+                res.send({ url : url });
+            });
+        })
+    }
+});
+
 function mkdirsSync(dirpath, mode) {
     if (!fs.existsSync(dirpath)) {
         var pathtmp;
