@@ -9,7 +9,6 @@ router.post('/admin',urlencodedParser,function(req, res) {
         password:admin_re.password,
     };
     req.session.admin = admin;
-    res.send({message:'密码已记住'});
 });
 router.get('/email', urlencodedParser,function(req, res) {
     if(req.session.admin){
