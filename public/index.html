@@ -12,8 +12,7 @@
     <script src="js/jquery-3.2.1.js"></script>
     <!-- 包括所有已编译的插件 -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/visitorNews.js"></script>
-    <script src="js/visitorBlogs.js"></script>
+    <script src="js/visitorNewsAndBlogs.js"></script>
     <link rel="stylesheet" href="css/show_newscss.css">
     <meta name="description" content="Bootstrap Responsive Multi-Purpose Landing Page Template">
     <meta name="keywords" content="Landro,Bootstrap,landing,Template,Mobile landing,Responsive,">
@@ -46,33 +45,32 @@
                     <li class="active"><a id="show_news">News</a></li>
 
                 </ul>
-
+                <div class="nav navbar-nav navbar-left" id="date-filter">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="startYear" style="width: 60px;  text-align: center">
+                                <div class="input-group-addon">年</div>
+                                <input type="text" class="form-control" id="startMonth" style="width: 50px; text-align: center">
+                                <div class="input-group-addon">月</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span style="font-size: 25px">~</span>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="endYear" style="width: 60px;  text-align: center">
+                                <div class="input-group-addon">年</div>
+                                <input type="text" class="form-control" id="endMonth" style="width: 50px; text-align: center">
+                                <div class="input-group-addon">月</div>
+                            </div>
+                        </div>
+                        <button style="margin-left: 20px" id="filter" class="btn btn-primary">筛选</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="date-filter">
-        <form class="form-inline">
-            <div class="form-group">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="startYear" style="width: 60px;  text-align: center">
-                    <div class="input-group-addon">年</div>
-                    <input type="text" class="form-control" id="startMonth" style="width: 50px; text-align: center">
-                    <div class="input-group-addon">月</div>
-                </div>
-            </div>
-            <div class="form-group">
-                <span style="font-size: 25px">~</span>
-            </div>
-            <div class="form-group">
-                <div class="input-group">
-                    <input type="text" class="form-control" id="endYear" style="width: 60px;  text-align: center">
-                    <div class="input-group-addon">年</div>
-                    <input type="text" class="form-control" id="endMonth" style="width: 50px; text-align: center">
-                    <div class="input-group-addon">月</div>
-                </div>
-            </div>
-            <button style="margin-left: 20px" id="filter" class="btn btn-primary">筛选</button>
-        </form>
     </div>
 
 </section>
@@ -109,11 +107,11 @@
 
     </ul>
 </div>
-<div id="wrapper1" style="display: none">
-    <ul id="thelist1">
+<!--<div id="wrapper1" style="display: none">-->
+    <!--<ul id="thelist1">-->
 
-    </ul>
-</div>
+    <!--</ul>-->
+<!--</div>-->
 <div id="gotop"></div>
 </body>
 </html>

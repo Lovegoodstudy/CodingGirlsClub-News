@@ -7,19 +7,19 @@ function reset_password(obj) {
         dataType:'JSON',
         crossDomain: true,
         success: function (data) {
-            alert(data.message);
+            if (data.message==true){
+                //alert('100');
+                location.href='login.html';
+            }
         },
         fail:function (data) {
 
         }
     })
 }
+
 function reset_password_interface() {
-    let arr=document.cookie.split(";");
-    let arr1=arr[1].split("=");
-    //alert(arr1[1]);
-    let admin = JSON.parse(arr1[1]);
-    let email=admin.email;
+    let email=JSON.parse(document.cookie).email;
     var password={};
     let pwd=$('.password').val();
     let r_pwd=$('.confirm_password').val();

@@ -203,7 +203,7 @@ a:hover{
     .col-md-6{
         padding-right: 0;!important;
     }
-    .time-line-content{
+    .time-line-content,.time-line-content2,.time-line1{
         display: none;
     }
     .rectangle2::after{
@@ -211,7 +211,7 @@ a:hover{
         width: 0;
         height: 0;
     }
-    .rectangle2{
+    .rectangle2,.rectangle1{
         height: 210px;
         width: 70%;
     }
@@ -219,6 +219,12 @@ a:hover{
         content:"";
         width: 0;
         height: 0;
+    }
+    #date-filter{
+        width: 40%;
+    }
+    #date-filter span{
+        margin-left: 10%;
     }
 }
 @media (max-width: 425px) {
@@ -233,9 +239,9 @@ a:hover{
     }
 }
 
-#date-filter{
-    position: absolute;
-    left: 15%;
-    bottom: 20px;
+/*#date-filter{*/
+    /*position: absolute;*/
+    /*left: 15%;*/
+    /*bottom: 20px;*/
 
-}
+/*}*/
