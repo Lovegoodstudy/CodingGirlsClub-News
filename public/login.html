@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>登录界面</title>
     <script src="js/jquery-3.2.1.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
@@ -12,26 +13,19 @@
     <script src="js/login_cookie.js"></script>
 
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-    <link type="text/css" rel="stylesheet" href="css/login.css">
+    <link type="text/css" media="all" rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="layer/mobile/need/layer.css">
     <link rel="stylesheet" href="layer/css/layui.css">
 </head>
 <body>
 <div class="container-fluid">
     <div class="header">
-        <div class="toolbar">
-            <div class="row">
-                <div class="col-md-2 col-xs-4 fr">
-                    <button><span class="glyphicon glyphicon-user"></span>
-                        <a href="login.html">sign in</a></button>
-                </div>
-            </div>
-        </div>
         <div class="nav1">
             <div class="row">
-                <div class="col-md-3 col-xs-5"><h1 style="font-size: 36px">LATEST NEWS</h1></div>
-                <div class="col-md-3 col-xs-5 fr">
-                    <h2 style="font-size: 30px"><span class="glyphicon glyphicon-home"></span>
+                <div class="col-md-4 col-xs-6">
+                    <h1>LATEST NEWS</h1></div>
+                <div class="col-md-4 col-xs-6 fr">
+                    <h2 class="fr"><span class="glyphicon glyphicon-home"></span>
                         <a href="index.html">Home</a> / News</h2></div>
             </div>
         </div>
@@ -39,27 +33,27 @@
     <div class="main">
         <div id="login_box" class="center-block">
             <div class="row">
-                <input class="col-md-4 col-xs-10 center-block email" placeholder="email">
+                <input class="col-md-5 col-xs-10 center-block email" placeholder="email">
             </div>
             <div class="row">
-                <input class="col-md-4 col-xs-10 center-block password" type="password" placeholder="password">
+                <input class="col-md-5 col-xs-10 center-block password" type="password" placeholder="password">
             </div>
             <div class="row">
-                <div class="col-md-4 col-xs-10 center-block">
+                <div class="col-md-5 col-xs-10 center-block">
                     <input type="checkbox" class="remember_me">
                     <label>remember me</label>
                     <a href="#" data-toggle="modal" data-target="#myModal">forget password>>></a>
                 </div>
             </div>
             <div class="row">
-                <button class="col-md-4 col-xs-10 center-block" onclick="whether_set_cookie(),Login()">Login</button>
+                <button class="col-md-5 col-xs-10 center-block btn" onclick="whether_set_cookie(),Login()">Login</button>
             </div>
         </div>
     </div>
     <!--start 模态框 邮箱验证-->
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
+        <div  class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -71,6 +65,7 @@
                         <input type="text" class="form-control confirm_email" placeholder="email" aria-describedby="basic-addon2">
                         <span class="input-group-addon" id="basic-addon2">@example.com</span>
                     </div>
+                    <span id="caution"></span>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -80,6 +75,14 @@
         </div>
     </div>
     <!--end 模态框 邮箱验证-->
+    <footer class="footer" id="footer">
+        <div class="footer-bottom">
+            <span>© Coding Girls Club Copyright 2016 - 2017. All Right Reserved.</span>
+        </div>
+    </footer>
+    <div class="login_box">
+        <a href="login.html">Login In</a>
+    </div>
 </div>
 </body>
 </html>

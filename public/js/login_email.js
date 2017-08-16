@@ -6,7 +6,7 @@ function confirm_email(obj) {
         dataType:'JSON',
         crossDomain: true,
         success: function (data) {
-            alert(data.message);
+            document.getElementById('caution').innerHTML=data.message;
         },
         fail:function (data) {
 

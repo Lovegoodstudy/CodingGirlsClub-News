@@ -8,6 +8,7 @@ body {
     color: #eee;
 }
 
+
 #foot #footer .container {
     margin-right: auto;
     margin-left: auto;
@@ -70,36 +71,3 @@ body {
 .navbar-header {
     padding: 2px 0;
 }
-/*.page-breadcrumb {
-    padding: 40px;
-    background-color: #009E94;
-}
-.page-breadcrumb h2 {
-    color: #ffffff;
-    text-transform: uppercase;
-    font-weight: 400;
-}
-.page-breadcrumb .breadcrumb {
-    padding-top: 10px;
-    background-color: transparent;
-}*/
-/*
-#list.list tr{
-
-}
-#list.list th.common {
-    display: table-cell;
-    vertical-align: inherit;
-    position: relative;
-    left: 10%;
-}
-#list.list td.by{
-    width: 105px;
-    line-height: 14px;
-    position: relative;
-    left: 70%;
-}
-#list.list {
-    background-color: white;
-}
-*/

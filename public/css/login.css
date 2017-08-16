@@ -1,96 +1,285 @@
-.container-fluid{
-    margin: 0px;
-    padding: 0px;
-}
-.fr{
-    float: right;
-}
-.header .main{
-    width: 100%;
-    margin: 10px auto;
-    height: auto;
-    border-radius: 10px;
-    border-bottom: 1px solid darkgray;
-}
-.toolbar{
-    background-color: black;
-    margin-bottom: 50px;
-}
-.toolbar button {
-    margin: 10px;
-    padding: 5px 15px;
-    border: 1px solid dodgerblue;
-    color: #3e8f3e;
-}
-.toolbar button a{
-    color: #4cae4c;
-}
-.toolbar button a:hover{
-    color: white;
-}
-.nav1{
-    background-color: #209b60;
-    color: white;
-}
-.nav1 h1,.nav1 h2{
-    padding: 30px;
-}
-.main{
-    margin-top: 0px;
-}
-#login_box{
-    width: auto;
-    height: auto;
-    opacity: 0.7;
-}
-#login_box input,#login_box button,#login_box div{
-    float: none;
-    margin: 5px auto;
-    padding: 5px;
-    border-radius: 5px;
-}
-.reset_password_box h3,.reset_password_box input,.reset_password_box button{
-    float: none;
-    margin: 10px auto;
-    padding: 5px;
-    border-radius: 5px;
-}
-.reset_password_box input,.reset_password_box button{
-    border: 1px solid dodgerblue;
-}
-.reset_password_box button{
-    background-color:dodgerblue;
-    color: white;
-}
-.reset_password_box button:hover{
-    background-color: purple;
-}
+@media (min-width:768px ){
+    .container-fluid {
+        margin: 0px;
+        padding: 0px;
+    }
 
-#login_box button{
-    background-color: blueviolet;
-    color: white;
+    .fr {
+        float: right;
+    }
+
+    .header, .main {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .main {
+        margin: 70px auto;
+    }
+
+    .toolbar {
+        background-color: black;
+    }
+
+    .toolbar button {
+        margin: 10px;
+        padding: 5px 15px;
+        border: 1px solid dodgerblue;
+        color: #3e8f3e;
+    }
+
+    .toolbar button a {
+        color: #4cae4c;
+    }
+
+    .toolbar button a:hover {
+        color: white;
+    }
+
+    .nav1 {
+        background: linear-gradient(#209b60, white);
+        color: white;
+    }
+
+    .nav1 h1, .nav1 h2 {
+        padding: 30px;
+    }
+
+    #login_box {
+        width: auto;
+        height: auto;
+        opacity: 0.7;
+    }
+
+    #login_box input, #login_box button, #login_box div {
+        float: none;
+        margin: 5px auto;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .reset_password_box h3, .reset_password_box input, .reset_password_box button {
+        float: none;
+        margin: 10px auto;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .reset_password_box button {
+        color: black;
+        opacity: 0.5;
+    }
+
+    .reset_password_box button:hover {
+        font-size: 24px;
+    }
+
+    .reset_password_box #re_pwd_caution, .reset_password_box #conf_pwd_caution, #caution {
+        float: none;
+        color: red;
+    }
+
+    #login_box button {
+        color: black;
+        opacity: 0.5;
+    }
+
+    #login_box button:hover {
+        font-size: 24px;
+    }
+
+    #login_box a {
+        display: block;
+        float: right;
+    }
+
+    .login_box {
+        width: 20px;
+        height: 100px;
+        background: radial-gradient(#209b60, white);
+        opacity: 0.5;
+        position: fixed;
+        top: 150px;
+        right: 0px;
+        border-radius: 50px;
+        text-align: center;
+        line-height: 100px;
+        box-shadow: 1px 2px 3px 4px gainsboro;
+        overflow: hidden;
+    }
+
+    .login_box a {
+        font-size: 28px;
+        color: black;
+        text-decoration-line: none;
+    }
+
+    .login_box a:hover {
+        text-shadow: 5px 5px 5px 5px gray;
+        font-size: 30px;
+    }
+
+    .login_box:hover {
+        width: 120px;
+    }
+
+    .footer .footer-bottom {
+        width: 100%;
+        text-align: center;
+        padding: 30px;
+        background: linear-gradient(white, #209b60);
+        position: fixed;
+        bottom: 0px;
+        font-size: 16px;
+    }
+    .container-fluid .header .nav1 h1{
+        font-size: 36px;
+    }
+    .container-fluid .header .nav1 h2{
+        font-size: 30px;
+    }
 }
-#login_box a{
-    display: block;
-    float: right;
-}
-.login_box{
-    width: 80px;
-    height: 80px;
-    background-color: #e686d6;
-    position: fixed;
-    top: 50px;
-    right: 20px;
-    border-radius: 40px;
-    text-align: center;
-    line-height: 80px;
-    box-shadow: 2px 2px 2px 2px #800d26;
-    color: white;
-}
-.login_box:hover{
-    border: 1px solid dodgerblue;
-    background-color: white;
-    box-shadow: 2px 2px 2px 2px #78807e;
-    color: green;
+@media (max-width:768px){
+    .container-fluid {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .fr {
+        float: right;
+    }
+
+    .header, .main {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .main {
+        margin: 70px auto;
+    }
+
+    .toolbar {
+        background-color: black;
+    }
+
+    .toolbar button {
+        margin: 10px;
+        padding: 5px 15px;
+        border: 1px solid dodgerblue;
+        color: #3e8f3e;
+    }
+
+    .toolbar button a {
+        color: #4cae4c;
+    }
+
+    .toolbar button a:hover {
+        color: white;
+    }
+
+    .nav1 {
+        background: linear-gradient(#209b60, white);
+        color: white;
+    }
+
+    .nav1 h1, .nav1 h2 {
+        padding: 30px;
+    }
+
+    #login_box {
+        width: auto;
+        height: auto;
+        opacity: 0.7;
+    }
+
+    #login_box input, #login_box button, #login_box div {
+        float: none;
+        margin: 5px auto;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .reset_password_box h3, .reset_password_box input, .reset_password_box button {
+        float: none;
+        margin: 10px auto;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .reset_password_box button {
+        color: black;
+        opacity: 0.5;
+    }
+
+    .reset_password_box button:hover {
+        font-size: 24px;
+    }
+
+    .reset_password_box #re_pwd_caution, .reset_password_box #conf_pwd_caution, #caution {
+        float: none;
+        color: red;
+    }
+
+    #login_box button {
+        color: black;
+        opacity: 0.5;
+    }
+
+    #login_box button:hover {
+        font-size: 24px;
+    }
+
+    #login_box a {
+        display: block;
+        float: right;
+    }
+
+    .login_box {
+        width: 20px;
+        height: 100px;
+        background: radial-gradient(#209b60, white);
+        opacity: 0.5;
+        position: fixed;
+        top: 150px;
+        right: 0px;
+        border-radius: 50px;
+        text-align: center;
+        line-height: 100px;
+        box-shadow: 1px 2px 3px 4px gainsboro;
+        overflow: hidden;
+    }
+
+    .login_box a {
+        font-size: 28px;
+        color: black;
+        text-decoration-line: none;
+    }
+
+    .login_box a:hover {
+        text-shadow: 5px 5px 5px 5px gray;
+        font-size: 30px;
+    }
+
+    .login_box:hover {
+        width: 120px;
+    }
+
+    .footer .footer-bottom {
+        width: 100%;
+        text-align: center;
+        padding: 30px;
+        background: linear-gradient(white, #209b60);
+        position: fixed;
+        bottom: 0px;
+        font-size: 70%;
+    }
+    .container-fluid .header .nav1 h1{
+        font-size: 60%;
+    }
+    .container-fluid .header .nav1 h2{
+        font-size: 50%;
+    }
 }
 
