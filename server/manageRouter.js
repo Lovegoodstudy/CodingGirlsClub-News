@@ -1,7 +1,3 @@
-/**
- * Created by zl on 8/11/17.
- */
-
 let express    = require('express');
 let router     = express.Router();
 
@@ -36,6 +32,21 @@ router.get('/blogs', function (req, res) {
     req.models.Blogs.find(function (err,reply) {
         console.log(reply);
         res.send(reply);
+    });
+});
+
+router.delete('/blogs:id', function (req, res) {
+    console.log(req.params.id);
+    req.models.Blogs.find({id:req.params.id}).remove(function (err) {
+        if(err)throw err;
+        res.send("true");
+    });
+});
+
+router.delete('/news:id', function (req, res) {
+    req.models.News.find({id:req.params.id}).remove(function (err) {
+        if(err)throw err;
+        res.send("true");
     });
 });
 
