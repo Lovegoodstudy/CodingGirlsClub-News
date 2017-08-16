@@ -81,6 +81,7 @@ a:hover{
     white-space: nowrap;
     text-overflow:ellipsis;
     transition: width 2s,height 2s;
+    margin-bottom: 30px;
 }
 #relativeNews{
     width: 300px;
@@ -96,6 +97,7 @@ a:hover{
     margin-left: 200px;
     padding-left: 20px;
 }
+
 #dropdown-menuYear{
     min-width: 95px;
 }
@@ -133,9 +135,13 @@ a:hover{
     #date-filter span{
         margin-left: 10%;
     }
+    #menu-list{
+        margin-left: 12%;
+    }
     #wrapper{
         width: 60%;
         float: left;
+        margin-left:12% ;
         padding-left: 20px;
     }
     #relativeNews{
@@ -177,5 +183,8 @@ a:hover{
     }
     #wrapper{
         padding-left: 2px;
+    }
+    .rectangle1 .content{
+        margin-bottom: 5px;
     }
 }

@@ -71,7 +71,8 @@
 }
 @media (max-width: 1024px) {
     #containerBody{
-        width: 90%;!important;
+        width: 100%;!important;
+        margin-left: 0;
     }
     #relativeNews{
         display: none;!important;
