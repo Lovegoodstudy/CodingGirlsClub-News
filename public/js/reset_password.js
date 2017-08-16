@@ -15,17 +15,24 @@ function reset_password(obj) {
         }
     })
 }
-
+function password_whether_same() {
+    document.getElementById('conf_pwd_caution').innerHTML="";
+    let pwd=$('.password').val();
+    let r_pwd=$('.confirm_password').val();
+    if (pwd!=r_pwd){
+        document.getElementById('conf_pwd_caution').innerHTML='*前后两次密码不一致';
+    }
+}
 function reset_password_interface() {
     let email=JSON.parse(document.cookie).email;
     var password={};
     let pwd=$('.password').val();
     let r_pwd=$('.confirm_password').val();
     if (pwd==""){
-        alert('请输入密码!');
+        return;
     }else {
         if (pwd!=r_pwd){
-            alert('密码不一致!');
+            return;
         }else {
             password.password=pwd;
             password.email=email;
