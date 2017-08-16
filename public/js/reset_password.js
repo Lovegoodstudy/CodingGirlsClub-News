@@ -1,5 +1,4 @@
 function reset_password(obj) {
-    //alert('success');
     $.ajax({
         type: 'POST',
         url: 'http://localhost:8081/reset_password',
@@ -8,7 +7,6 @@ function reset_password(obj) {
         crossDomain: true,
         success: function (data) {
             if (data.message==true){
-                //alert('100');
                 location.href='login.html';
             }
         },
@@ -23,7 +21,6 @@ function reset_password_interface() {
     var password={};
     let pwd=$('.password').val();
     let r_pwd=$('.confirm_password').val();
-    //alert(pwd);
     if (pwd==""){
         alert('请输入密码!');
     }else {

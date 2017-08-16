@@ -1,7 +1,7 @@
 
 "use strict";
 function memory_to_session(data) {
-    debugger;
+    //debugger;
     $.ajax({
         type: 'POST',
         url: 'http://localhost:8081/session/admin',
@@ -17,13 +17,12 @@ function memory_to_session(data) {
     })
 }
 window.onload=function () {
-    get_form_cookie();
+    get_from_cookie();
 }
-function weather_set_cookie() {
+function whether_set_cookie() {
     let rem = document.getElementsByClassName('remember_me')[0].checked;
     if (rem) {
         setCookie();
-        //alert('success');
     }
 }
 function setCookie() {
@@ -35,9 +34,8 @@ function setCookie() {
     document.cookie=JSON.stringify(admin);
     memory_to_session(admin);
 }
-function get_form_cookie() {
+function get_from_cookie() {
     let admin=JSON.parse(document.cookie);
     $('.email').val(admin.email);
     $('.password').val(admin.password);
 }
-//module.exports=get_form_session();

@@ -16,21 +16,23 @@
     background-color: black;
     margin-bottom: 50px;
 }
-.toolbar button{
+.toolbar button {
     margin: 10px;
     padding: 5px 15px;
     border: 1px solid dodgerblue;
     color: #3e8f3e;
 }
-.toolbar button:hover{
-    background-color: #3e8f3e;
+.toolbar button a{
+    color: #4cae4c;
+}
+.toolbar button a:hover{
     color: white;
 }
-.nav{
+.nav1{
     background-color: #209b60;
     color: white;
 }
-.nav h1,.nav h2{
+.nav1 h1,.nav1 h2{
     padding: 30px;
 }
 .main{
@@ -72,3 +74,23 @@
     display: block;
     float: right;
 }
+.login_box{
+    width: 80px;
+    height: 80px;
+    background-color: #e686d6;
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    border-radius: 40px;
+    text-align: center;
+    line-height: 80px;
+    box-shadow: 2px 2px 2px 2px #800d26;
+    color: white;
+}
+.login_box:hover{
+    border: 1px solid dodgerblue;
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px #78807e;
+    color: green;
+}
+
