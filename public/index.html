@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <title>News</title>
+    <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 引入 Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -12,109 +11,65 @@
     <script src="js/jquery-3.2.1.js"></script>
     <!-- 包括所有已编译的插件 -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/visitorNewsAndBlogs.js"></script>
-    <link rel="stylesheet" href="css/show_newscss.css">
-    <meta name="description" content="Bootstrap Responsive Multi-Purpose Landing Page Template">
-    <meta name="keywords" content="Landro,Bootstrap,landing,Template,Mobile landing,Responsive,">
-    <meta name="author" content="Omar Faruk">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <!-- CUSTOM STYLES -->
     <link rel="stylesheet"  href="css/indexcss.css">
-    <!-- COLORS -->
-    <link rel="stylesheet"  href="css/color/green.css">
-    <!-- RESPONSIVE FIXES -->
-    <link rel="stylesheet"  href="css/responsive.css">
-    <link rel="stylesheet" href="css/login.css">
+    <script src="js/indexjs.js"></script>
 </head>
 <body>
-<!-- =========================
-          LATEST NEWS TABLE  AREA
-     ============================== -->
 
-<section id="show-news" class="navbar section-bg-color-second" style="margin-bottom: 0;">
+
+<section id="show-news" class="navbar section-bg-color-second">
     <div class="container">
         <div class="row">
-            <div class="section-heading-white">
-                <H1>LATEST NEWS</H1>
-                <h4>Look up the latest news here.</h4>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a id="show_blogs">Blogs</a></li>
+            <a href=""><img src="images/CodingGirlsClub.png" alt="" style="width: 250px;height: 50px;margin-top: 20px;margin-bottom: 20px"></a>
+            <h4 class="navbar-right" style="margin-top: 25px">Look up the latest news here.</h4>
+            <h1 class="navbar-right" style="margin-top: 25px">LATEST NEWS</h1>
+        </div>
+    </div>
+</section>
+<div id="menu-list">
+    <ul>
+        <li class="menu-item"><a id="show_news">News</a></li>
+        <li class="menu-item"><a id="show_blogs">Blogs</a></li>
 
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a id="show_news">News</a></li>
-
-                </ul>
-                <div class="nav navbar-nav navbar-left" id="date-filter">
-                    <form class="form-inline">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="startYear" style="width: 60px;  text-align: center">
-                                <div class="input-group-addon">年</div>
-                                <input type="text" class="form-control" id="startMonth" style="width: 50px; text-align: center">
-                                <div class="input-group-addon">月</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <span style="font-size: 25px">~</span>
-                        </div>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="endYear" style="width: 60px;  text-align: center">
-                                <div class="input-group-addon">年</div>
-                                <input type="text" class="form-control" id="endMonth" style="width: 50px; text-align: center">
-                                <div class="input-group-addon">月</div>
-                            </div>
-                        </div>
-                        <button style="margin-left: 20px" id="filter" class="btn btn-primary">筛选</button>
-                    </form>
-                </div>
+        <li class="menu-item1">
+            <div class="form-group">
+                <select id="btn-year" class="form-control">
+                    <option>选择年份</option>
+                </select>
             </div>
-        </div>
-    </div>
+        </li>
 
-</section>
+        <li class="menu-item1">
+            <div class="form-group">
+                <select id="btn-month" class="form-control">
+                    <option>选择月份</option>
+                </select>
+            </div>
+        </li>
 
-
-<!-- =========================
-     PRE-LOADER  AREA
-============================== -->
-<!--<div class="preloader">
-    <div class="status">&nbsp;</div>
-</div>-->
-<!-- =========================
-     HEADER  AREA
-============================== -->
-<section id="section-1" class="header-section">
-    <div class="color-overlay">
-        <div class="container">
-            <div class="header-logo">
-                <img style="width: 100%" src="./images/green-logo.png" alt="Logo">
-            </div> <!-- HEADER LOGO -->
-            <div class="header-text">
-                <H1><span class="wodry">Why Can't Girls Code?|
-					Join Us To Learn Coding Skills|
-	 				</span> </H1>
-
-                <H4>Coding Girls Club is a vibrant educational community driven by mentors spanning multiple areas of expertise, geographies and languages. </H4>
-            </div> <!-- HEADER-TEXT -->
-        </div>
-    </div>
-</section>
-
-<div id="wrapper">
-    <ul id="thelist">
-
+        <!--<li class="menu-item1">
+            <input type="text" class="form-control" id="startYear" style="text-align: center" placeholder="开始年份">
+        </li>
+        <li class="menu-item1">
+            <input type="text" class="form-control" id="startMonth" style="text-align: center" placeholder="开始月份">
+        </li>
+        <li class="menu-item1">
+            <input type="text" class="form-control" id="endYear" style="text-align: center" placeholder="结束年份">
+        </li>
+        <li class="menu-item1">
+            <input type="text" class="form-control" id="endMonth" style="text-align: center" placeholder="结束月份">
+        </li>-->
+        <li class="menu-item1">
+            <button id="filter" class="btn btn-primary">筛选</button>
+        </li>
     </ul>
 </div>
-<!--<div id="wrapper1" style="display: none">-->
-    <!--<ul id="thelist1">-->
+<div id="wrapper">
+    <ul id="thelist">
+    </ul>
+</div>
 
-    <!--</ul>-->
-<!--</div>-->
-<div id="gotop"></div>
-<a href="login.html">
-    <div class="login_box">Login in</div>
-</a>
+<div id="relativeNews"></div>
 </body>
 </html>
+
