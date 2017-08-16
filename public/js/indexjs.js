@@ -121,7 +121,7 @@ function makeLi(data,type,rectangle,theListId,rate) {
         <h3><a href="../detailWebpage.html?type=${type}&id=${data.id}">${data.title}</a></h3>
         <p>作者：${data.author}<span style="margin-left: 10px;margin-right: 10px;border-right: 1px solid gainsboro"></span><span>${data.date}</span></p>
         <p class="content">${data.introduction}</p>
-        <a href="../detailWebpage.html?type=${type}&id=${data.id}">READ MORE</a>
+        <a href="../detailWebpage.html?type=${type}&id=${data.id}" style="color: #131010">READ MORE ></a>
         </div>
         <a href="../detailWebpage.html?type=${type}&id=${data.id}" class="col-md-3 img"><img src="${data.pictureUrl}"></a>
         </div>
@@ -133,7 +133,7 @@ function makeLi(data,type,rectangle,theListId,rate) {
         <h3><a href="../detailWebpage.html?type=${type}&id=${data.id}">${data.title}</a></h3>
         <p>作者：${data.author}<span class="glyphicon glyphicon-calendar" style="margin-left: 10px"></span><span>${data.date}</span></p>
         <p class="content">${data.introduction}</p>
-        <a href="../detailWebpage.html?type=${type}&id=${data.id}">READ MORE</a>
+        <a href="../detailWebpage.html?type=${type}&id=${data.id}" style="color: #131010">READ MORE ></a>
         </div>
         </div>`;
     }
