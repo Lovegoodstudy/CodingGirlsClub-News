@@ -15,34 +15,33 @@ $(document).ready(function () {
 
     $("#show_news").css({"background-color":"#ffc400","border-radius":"5px"});
     let type = "news";
-    ajaxBody(type,'','','','');
+    ajaxBody(type,'','');
     $("#show_news").click(function () {
         $("#show_news").css({"background-color":"#ffc400","border-radius":"5px"});
         $("#show_blogs").css({"background-color":"inherit","border-radius":"5px"});
         $("#thelist").empty();
         type = "news";
-        ajaxBody(type,'','','','');
+        ajaxBody(type,'','');
     });
     $("#show_blogs").click(function () {
         $("#show_news").css({"background-color":"inherit","border-radius":"5px"});
         $("#show_blogs").css({"background-color":"#ffc400","border-radius":"5px"});
         $("#thelist").empty();
         type = "blogs";
-        ajaxBody(type,'','','','');
+        ajaxBody(type,'','');
     });
-    $("#filter").click(function (e) {
-        e.preventDefault();
+    $("#filter").click(function () {
         $("#thelist").empty();
-        sy = $("#startYear").val();
-        sm = $("#startMonth").val();
-        ey = $("#endYear").val();
-        em = $("#endMonth").val();
-        ajaxBody(type,sy,sm,ey,em);
+        year = $("#btn-year").val();
+        month = $("#btn-month").val();
+        if(year === "选择年份") year = '';
+        if(month === "选择月份") month = '';
+        ajaxBody(type,year,month);
     });
 
     const BASE_URL = "http://localhost:8081";
     $.ajax({
-        url: BASE_URL + `/${type}?count=1&sy=&sm=&ey=&em=`,
+        url: BASE_URL + `/${type}?count=1&year=&month=`,
         type:"GET",
         crossDomain:true,
         cache:false,
@@ -62,9 +61,9 @@ $(document).ready(function () {
         }
     });
 });
-function ajaxBody(type,sy,sm,ey,em) {
+function ajaxBody(type,year,month) {
     let count = 1;
-    let URL = `http://127.0.0.1:8081/${type}?count=${count}&sy=${sy}&sm=${sm}&ey=${ey}&em=${em}`;
+    let URL = `http://127.0.0.1:8081/${type}?count=${count}&year=${year}&month=${month}`;
     pageOne(URL,type,"thelist");
     $(window).bind("scroll",function () {
         if($(window).scrollTop()+$(window).height()>=$(document).height()){
@@ -74,7 +73,7 @@ function ajaxBody(type,sy,sm,ey,em) {
     });
     function ajaxRead() {
         count++;
-        URL = `http://127.0.0.1:8081/${type}?count=${count}&sy=${sy}&sm=${sm}&ey=${ey}&em=${em}`;
+        URL = `http://127.0.0.1:8081/${type}?count=${count}&year=${year}&month=${month}`;
         $.ajax({
             url:URL,
             type:"GET",

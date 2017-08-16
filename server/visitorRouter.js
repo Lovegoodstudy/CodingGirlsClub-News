@@ -6,22 +6,26 @@ let urlencodedParser = bodyParser.urlencoded({extended: true});
 router.get("/news",function (req, res) {
     const THISYEAR = new Date().getFullYear();
     let cnt = req.query.count;
-    let sy=req.query.sy;
-    let sm=req.query.sm;
-    let ey=req.query.ey;
-    let em=req.query.em;
-
-    if(ey===''){
-        ey = THISYEAR;
-    }
-    if(em===''){
-        em = 12;
-    }
-    if(sm===''){
-        sm = 1;
-    }
-    if(sy===''){
-        sy = -1;
+    let sy=req.query.year;
+    let sm=req.query.month;
+    let ey=req.query.year;
+    let em=req.query.month;
+    if(sy===''&&sm!==''){
+        sy=THISYEAR;
+        ey=THISYEAR;
+    }else{
+        if(ey===''){
+            ey = THISYEAR;
+        }
+        if(em===''){
+            em = 12;
+        }
+        if(sm===''){
+            sm = 1;
+        }
+        if(sy===''){
+            sy = -1;
+        }
     }
 
     ey = parseInt(ey);
@@ -81,22 +85,26 @@ router.get("/blogs",function (req, res) {
     const THISYEAR = new Date().getFullYear();
 
     let cnt = req.query.count;
-    let sy=req.query.sy;
-    let sm=req.query.sm;
-    let ey=req.query.ey;
-    let em=req.query.em;
-
-    if(ey===''){
-        ey = THISYEAR;
-    }
-    if(em===''){
-        em = 12;
-    }
-    if(sm===''){
-        sm = 1;
-    }
-    if(sy===''){
-        sy = -1;
+    let sy=req.query.year;
+    let sm=req.query.month;
+    let ey=req.query.year;
+    let em=req.query.month;
+    if(sy===''&&sm!==''){
+        sy=THISYEAR;
+        ey=THISYEAR;
+    }else{
+        if(ey===''){
+            ey = THISYEAR;
+        }
+        if(em===''){
+            em = 12;
+        }
+        if(sm===''){
+            sm = 1;
+        }
+        if(sy===''){
+            sy = -1;
+        }
     }
 
     ey = parseInt(ey);

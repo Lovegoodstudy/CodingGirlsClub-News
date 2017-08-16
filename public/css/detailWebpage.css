@@ -145,13 +145,15 @@
     margin-bottom: 3px;
 }
 
-#qrcode-content{
+#qrcode-content {
     position: absolute;
     top: 30px;
     left: -20px;
     z-index: 1;
     padding: 10px;
     background-color: #f9f9f9;
+}
+
 @media (max-width: 768px) {
     #containerBody{
         width: 90%;!important;
