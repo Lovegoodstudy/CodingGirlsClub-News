@@ -5,16 +5,16 @@
 .fr{
     float: right;
 }
-.header .main{
+.header,.main{
     width: 100%;
-    margin: 10px auto;
     height: auto;
     border-radius: 10px;
-    border-bottom: 1px solid darkgray;
+}
+.main{
+    margin: 70px auto;
 }
 .toolbar{
     background-color: black;
-    margin-bottom: 50px;
 }
 .toolbar button {
     margin: 10px;
@@ -29,14 +29,11 @@
     color: white;
 }
 .nav1{
-    background-color: #209b60;
+    background: linear-gradient(#209b60,white);
     color: white;
 }
 .nav1 h1,.nav1 h2{
     padding: 30px;
-}
-.main{
-    margin-top: 0px;
 }
 #login_box{
     width: auto;
@@ -55,24 +52,36 @@
     padding: 5px;
     border-radius: 5px;
 }
-.reset_password_box input,.reset_password_box button{
-    border: 1px solid dodgerblue;
-}
 .reset_password_box button{
-    background-color:dodgerblue;
-    color: white;
+    color: black;
+    opacity: 0.5;
 }
 .reset_password_box button:hover{
-    background-color: purple;
+    font-size: 24px;
 }
-
+.reset_password_box #re_pwd_caution,.reset_password_box #conf_pwd_caution,#caution{
+    float: none;
+    color: red;
+}
 #login_box button{
-    background-color: blueviolet;
-    color: white;
+    color: black;
+    opacity: 0.5;
+}
+#login_box button:hover{
+    font-size: 24px;
 }
 #login_box a{
     display: block;
     float: right;
+}
+@media screen and(max-width:768px)and (min-width: 320px){
+    .main .row{
+        margin: 50px auto;
+    }
+    .footer .footer-bottom{
+        position: fixed;
+        bottom: 0px;
+    }
 }
 .login_box{
     width: 80px;
@@ -92,5 +101,13 @@
     background-color: white;
     box-shadow: 2px 2px 2px 2px #78807e;
     color: green;
+}
+.footer .footer-bottom{
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(white, #209b60);
+    position: fixed;
+    bottom: 0px;
 }
 
