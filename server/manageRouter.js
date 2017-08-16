@@ -36,18 +36,41 @@ router.get('/blogs', function (req, res) {
 });
 
 router.delete('/blogs:id', function (req, res) {
-    console.log(req.params.id);
-    req.models.Blogs.find({id:req.params.id}).remove(function (err) {
-        if(err)throw err;
+    let array=req.params.id.split(",");
+    console.log(array);
+    if(array.length===1) {
+        req.models.Blogs.find({id: req.params.id}).remove(function (err) {
+            if (err)throw err;
+            res.send("true");
+        });
+    }else{
+        for(let i=0;i<array.length;i++){
+            req.models.Blogs.find({id: array[i]}).remove(function (err) {
+                if (err)throw err;
+            });
+        }
         res.send("true");
-    });
+    }
 });
 
 router.delete('/news:id', function (req, res) {
-    req.models.News.find({id:req.params.id}).remove(function (err) {
-        if(err)throw err;
+    //let arrayString=(req.params.id).substring(1,req.params.id.length-1);
+    //console.log(arrayString);
+    let array=req.params.id.split(",");
+    console.log(array);
+    if(array.length===1) {
+        req.models.News.find({id: req.params.id}).remove(function (err) {
+            if (err)throw err;
+            res.send("true");
+        });
+    }else{
+        for(let i=0;i<array.length;i++){
+            req.models.News.find({id: array[i]}).remove(function (err) {
+                if (err)throw err;
+            });
+        }
         res.send("true");
-    });
+    }
 });
 
 module.exports = router;
