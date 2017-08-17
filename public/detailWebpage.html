@@ -6,8 +6,6 @@
     <title>查看文章</title>
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="./css/detailWebpage.css">
-    <link rel="stylesheet" href="../node_modules/social-share.js/dist/css/share.min.css">
-    <script src="../node_modules/social-share.js/dist/js/social-share.min.js"></script>
     <script src="./jquery-3.2.1.js"></script>
     <script src="./bootstrap/js/bootstrap.js"></script>
     <script>
@@ -19,13 +17,20 @@
         }
         function qzone(){
             let p = {
-                url: window.location.href.replace("&","%26"),
-                desc:"大家快来看，这篇文章很有趣哦！",/*默认分享理由(可选)*/
-                title:`${$("#title").text()}`,/*分享标题(可选)*/
-                site:'CodingGirlsClub',/*分享来源 如：腾讯网(可选)*/
+                url: encodeURIComponent(window.location.href),
+                showcount: "0",
+                /*是否显示分享总数,显示：'1'，不显示：'0' */
+                desc: "大家快来看，这篇文章很有趣哦！",
+                /*默认分享理由(可选)*/
+                title: `${$("#title").text()}`,
+                /*分享标题(可选)*/
+                site: "CodingGirlsClub",
             };
-            http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http%3A%2F%2Flocalhost%3A63342%2FCodingGirlsClub-News%2Fpublic%2FdetailWebpage.html%3F_ijt%3D69acocjpvchfj14ld01kc530qf&title=%E6%9F%A5%E7%9C%8B%E6%96%87%E7%AB%A0&desc=&summary=&site=CodingGrilsClub
-            let href = `http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?title="${$("#title").text()}"&url=${window.location.href}&site="yes"&desc="helloworld"`;
+            let s = [];
+            for (let i in p) {
+                s.push(i + '=' + p[i]);
+            }
+            let href = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?'+s.join('&');
             window.open(href);
         }
         $(document).ready(function () {
