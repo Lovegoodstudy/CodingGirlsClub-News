@@ -10,12 +10,17 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="js/manageIndex.js"></script>
 <script src="js/login_out.js"></script>
+<script>
+    if($("body").height()<$(window).height()){
+        $("body").css("height",`${$(window).height()}px`);
+    }
+</script>
 <!--<script>sessionStorage.clear();</script>-->
 <link rel="stylesheet" href="css/manageIndexCss.css">
 <link rel="stylesheet" href="layer/mobile/need/layer.css">
 <link rel="stylesheet" href="layer/css/layui.css">
 </head>
-<body>
+<body id="body">
 <div class="top-bar dark">
     <div class="container">
         <div class="row">
@@ -49,7 +54,7 @@
         </div>
     </div>
 </div>-->
-<div class="container">
+<div class="container" style="padding-bottom: 50px">
     <div class="rows display">
         <div class="tab-content">
             <div class="tab-pane fade in active" id="seeNews">
@@ -79,15 +84,15 @@
                     </tbody>
                 </table>
                 <div class="layui-btn-group">
-                    <button class="layui-btn layui-btn-small" id="allCheckBlogs"onclick="allCheckBlogs()">全选</button>
-                    <button class="layui-btn layui-btn-small" id="allDeleteBlogs"onclick="allDeleteBlogs()">删除</button>
+                    <button class="layui-btn layui-btn-small" id="allCheckBlogs" onclick="allCheckBlogs()">全选</button>
+                    <button class="layui-btn layui-btn-small" id="allDeleteBlogs" onclick="allDeleteBlogs()">删除</button>
                 </div>
                 <div id=displayBlogsList class="displayBlogsList" style="padding-left:70%"></div>
             </div>
         </div>
     </div>
 </div>
-<div class="space30"></div>
+
 <div id="foot">
     <footer class="footer" id="footer">
         <div class="footer-bottom">
