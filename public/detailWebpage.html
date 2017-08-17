@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="site" content="CodingGrilsClub">
+    <meta name="viewport" content="width=device-width"/>
     <title>查看文章</title>
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="./css/detailWebpage.css">
@@ -188,8 +189,8 @@
 <body>
 <div id="loginOutHead">
 </div>
-<div class="page-breadcrumb" style="width: 100%">
-    <div class="container">
+<div class="page-breadcrumb">
+    <div class="container" >
         <div class="row">
             <div class="col-xs-6">
                 <h2>View an article</h2>
@@ -213,8 +214,15 @@
         <div class="col-lg-12 col-md-12 col-sm-12 detailBox">
             <span id="date"></span><span class="box-line"></span>
             <a id="author"></a>
-
-
+            <div id="share-min">
+                <span id="fenxiang">分享：</span>
+                <span style="padding-right: 10px; display: inline-block;" title="weibo">
+                <a href="#"><img src="./image/weibo.png" alt="weibo" onclick="weibo()"></a>
+                </span>
+                <span style="display: inline-block;" title="qzone">
+                <a href="#"><img src="./image/qzone.png" alt="qzone" onclick="qzone()"></a>
+            </span>
+            </div>
         </div>
 
         <!--封面图片-->

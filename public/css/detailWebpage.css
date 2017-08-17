@@ -18,7 +18,7 @@ a:hover{
     margin-bottom: 40px;
     padding-bottom: 40px;
     position: absolute;
-    left: 100px;
+    left: 6%;
 }
 .col-lg-12{
     padding-left: 0;!important;
@@ -72,15 +72,7 @@ a:hover{
     margin-left: 9%;
     margin-top: 20px;
 }
-@media (max-width: 1024px) {
-    #containerBody{
-        width: 100%;!important;
-        margin-left: 0;
-    }
-    #relativeNews{
-        display: none;!important;
-    }
-}
+
 .share-tools{
     position: relative;
     float: left;
@@ -158,12 +150,53 @@ a:hover{
     margin-bottom: 8px;
 }
 
+#share-min{
+    display:none;
+    float: right;
+    padding-right: 10px;
+}
+
+@media (max-width: 1024px) {
+    .container{
+        width: 90%;
+    }
+    .article{
+        align-content: center;
+    }
+
+    #containerBody{
+        width: 100%;
+        margin-left: 0;
+    }
+    #relativeNews{
+        display: none;
+    }
+
+    .share-tools{
+        display: none;
+    }
+    #share-min{
+        display: block;
+    }
+}
+
 @media (max-width: 768px) {
+    .container{
+        width: 100%;
+    }
+    .article{
+        left: 5%;
+    }
     #containerBody{
         width: 90%;!important;
     }
     #relativeNews{
         display: none;!important;
+    }
+}
+@media (max-width: 375px) {
+    #fenxiang{
+        display: none;
     }
 }
 .top-bar.dark {
