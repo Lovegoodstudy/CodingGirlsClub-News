@@ -88,6 +88,25 @@ a:hover{
     margin-top: 42px;
 }
 
+#qrcode {
+    position: relative;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+#qrcode:before {
+    position: absolute;
+    top: -10px;
+    left: 45px;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 20px 12px;
+    border-color: transparent transparent #f9f9f9;
+}
+
 #share-body{
     width: 130px;
     background-color: #f9f9f9;
@@ -137,15 +156,6 @@ a:hover{
 
 .share{
     margin-bottom: 8px;
-}
-
-#qrcode-content {
-    position: absolute;
-    top: 30px;
-    left: -20px;
-    z-index: 1;
-    padding: 10px;
-    background-color: #f9f9f9;
 }
 
 @media (max-width: 768px) {
