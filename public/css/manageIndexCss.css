@@ -57,8 +57,8 @@ body {
 !important;
     color: #eee;
 }
-.top-bar span a {
-    padding: 4px 10px;
+.top-bar span button {
+    padding: 4px 17px;
     background-color: #f5f5f5;
     font-size: 12px;
     line-height: 20px;

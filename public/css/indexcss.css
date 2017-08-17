@@ -3,7 +3,7 @@
     padding: 0;
 }
 section#show-news {
-    background: rgba(5, 141, 7, 0.62);
+    background-color: #209b60;
     color: white;
 }
 ul li{

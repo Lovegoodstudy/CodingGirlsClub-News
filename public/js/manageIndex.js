@@ -154,7 +154,7 @@ function deleteNews(id) {
     })
 }
 
-//全选删除新闻
+//删除选定新闻
 function allDeleteNews() {
     let checkNewsBox = document.getElementsByClassName('checkNewsBox');
     console.log(checkNewsBox);
@@ -184,7 +184,7 @@ function allDeleteNews() {
         }
     });
 }
-//全选删除博客
+//删除选定博客
 function allDeleteBlogs() {
     let checkBlogsBox = document.getElementsByClassName('checkBlogsBox');
     console.log(checkBlogsBox);
@@ -214,3 +214,4 @@ function allDeleteBlogs() {
         }
     });
 }
+//全选
