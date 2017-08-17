@@ -10,6 +10,9 @@ a:hover{
     text-transform: uppercase;
     font-weight: 400;
 }
+.page-breadcrumb a {
+    color: #ffffff;
+}
 .page-breadcrumb .breadcrumb {
     padding-top: 10px;
     background-color: transparent;
