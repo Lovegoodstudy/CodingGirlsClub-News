@@ -28,7 +28,7 @@
 <nav class="navbar navbar-default navbar-static-top yamm">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" style="max-height: 100%;display:inline-block;padding-top: 8px;" href="#">
+            <a class="navbar-brand" style="max-height: 100%;display:inline-block;padding-top: 8px;" href="index.html">
                 <img src="img/logo.png" alt="Cgc02" width="210" height="42"></a>
         </div>
         <div id="navbar" class="navbar-collapse">
@@ -63,7 +63,7 @@
                     </tbody>
                 </table>
                 <div class="layui-btn-group">
-                    <button class="layui-btn layui-btn-small" id="allCheckNews" onclick="allCheck()">全选</button>
+                    <button class="layui-btn layui-btn-small" id="allCheckNews" onclick="allCheckNews()">全选</button>
                     <button class="layui-btn layui-btn-small" id="allDeleteNews" onclick="allDeleteNews()">删除</button>
                 </div>
                 <div id=displayNewsList class="displayNewslist" style="padding-left:70%"></div>
@@ -79,7 +79,7 @@
                     </tbody>
                 </table>
                 <div class="layui-btn-group">
-                    <button class="layui-btn layui-btn-small" id="allCheckBlogs">全选</button>
+                    <button class="layui-btn layui-btn-small" id="allCheckBlogs"onclick="allCheckBlogs()">全选</button>
                     <button class="layui-btn layui-btn-small" id="allDeleteBlogs"onclick="allDeleteBlogs()">删除</button>
                 </div>
                 <div id=displayBlogsList class="displayBlogsList" style="padding-left:70%"></div>
@@ -87,6 +87,7 @@
         </div>
     </div>
 </div>
+<div class="space30"></div>
 <div id="foot">
     <footer class="footer" id="footer">
         <div class="footer-bottom">

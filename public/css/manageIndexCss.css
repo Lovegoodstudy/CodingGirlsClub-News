@@ -44,7 +44,7 @@ body {
 }
 
 .top-bar.dark {
-    background-color: #444;
+    background-color: black;
     border-bottom: 0px;
 }
 
@@ -70,4 +70,7 @@ body {
 
 .navbar-header {
     padding: 2px 0;
+}
+.space30{
+    height: 30px;
 }

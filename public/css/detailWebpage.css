@@ -10,8 +10,12 @@ a:hover{
     text-transform: uppercase;
     font-weight: 400;
 }
-.page-breadcrumb a {
+
+.page-breadcrumb a{
     color: #ffffff;
+}
+.page-breadcrumb a:hover{
+    color: #0f0f0f;
 }
 .page-breadcrumb .breadcrumb {
     padding-top: 10px;
@@ -170,7 +174,7 @@ a:hover{
     }
 }
 .top-bar.dark {
-    background-color: #444;
+    background-color: black;
     border-bottom: 0px;
 }
 
@@ -191,4 +195,17 @@ a:hover{
     display: block;
     margin-top: 3px;
     color: #209b60;
+}
+#foot #footer .footer-bottom {
+    padding: 15px 0;
+    text-align: center;
+    background-color: #0f0f0f;
+    color: #eee;
+}
+
+#foot #footer .container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
 }
