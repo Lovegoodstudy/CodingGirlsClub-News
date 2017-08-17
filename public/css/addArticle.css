@@ -19,6 +19,9 @@ div.col-xs-3.col-sm-3.col-md-3{
     text-transform: uppercase;
     font-weight: 400;
 }
+.page-breadcrumb a {
+    color: #ffffff;
+}
 
 .page-breadcrumb .breadcrumb {
     padding-top: 10px;
