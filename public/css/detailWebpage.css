@@ -156,3 +156,26 @@ a:hover{
         display: none;!important;
     }
 }
+.top-bar.dark {
+    background-color: #444;
+    border-bottom: 0px;
+}
+
+.top-bar {
+    padding: 6px 0;
+}
+.top-bar.dark.col-sm-1 span {
+    padding-right: 10px;
+!important;
+    color: #eee;
+}
+.top-bar span button {
+    padding: 4px 17px;
+    background-color: #f5f5f5;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+    display: block;
+    margin-top: 3px;
+    color: #209b60;
+}
