@@ -1,11 +1,22 @@
+html{
+    height: 100%;
+}
 body {
     background-color: #d5d5d5;
+    min-height: 100%;
+    position: relative;
 }
 #foot #footer .footer-bottom {
     padding: 15px 0;
     text-align: center;
     background-color: #0f0f0f;
     color: #eee;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    /*margin-top: 40%;*/
+    /*position: fixed;*/
+    /*width:100%*/
 }
 
 
@@ -70,7 +81,4 @@ body {
 
 .navbar-header {
     padding: 2px 0;
-}
-.space30{
-    height: 30px;
 }
