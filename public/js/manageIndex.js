@@ -214,4 +214,21 @@ function allDeleteBlogs() {
         }
     });
 }
-//全选
+//全选新闻
+function allCheckNews() {
+    let checkNewsBox = document.getElementsByClassName('checkNewsBox');
+    for (let i = 0; i < checkNewsBox.length; i++) {
+        if (checkNewsBox[i].checked !== true) {
+            checkNewsBox[i].checked = true;
+        }
+    }
+}
+//全选博客
+function allCheckBlogs() {
+    let checkBlogsBox = document.getElementsByClassName('checkBlogsBox');
+    for (let i = 0; i < checkBlogsBox.length; i++) {
+        if (checkBlogsBox[i].checked !== true) {
+            checkBlogsBox[i].checked = true;
+        }
+    }
+}

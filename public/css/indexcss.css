@@ -188,3 +188,16 @@ a:hover{
         margin-bottom: 5px;
     }
 }
+#foot1 #footer .footer-bottom{!important;
+    padding: 15px 0;
+    text-align: center;
+    background-color: #0f0f0f;
+    color: #eee;
+}
+
+#foot1 #footer .container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
