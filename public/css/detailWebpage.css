@@ -1,3 +1,6 @@
+a:hover{
+    text-decoration: none;
+}
 .page-breadcrumb {
     padding: 40px;
     background-color: #209b60;
@@ -79,14 +82,14 @@
     }
 }
 .share-tools{
+    position: relative;
     float: left;
-    position: fixed;
-    top: 75px;
-    left: 100px;
+    margin-left: 50px;
+    margin-top: 42px;
 }
 
 #share-body{
-    width: 110px;
+    width: 130px;
     background-color: #f9f9f9;
     box-sizing: border-box;
     padding: 15px 20px;
@@ -99,10 +102,9 @@
     color: #333;
 }
 
-#share-head:before {
+.share-tools:before {
     position: absolute;
-    top: 13px;
-    left: 0;
+    top:11px;
     width: 4px;
     height: 25px;
     content: "";
@@ -111,9 +113,6 @@
 
 #weibo span{
     font-size: 16px;
-    position: absolute;
-    top: 58px;
-    left:50px;
     padding-left: 10px;
     width: 100%;
     /*content: "\5FAE\535A";*/
@@ -122,9 +121,6 @@
 
 #qzone span{
     font-size: 16px;
-    position: absolute;
-    top: 102px;
-    left: 50px;
     padding-left: 10px;
     width: 100%;
         /*content: "Qzone";*/
@@ -133,9 +129,6 @@
 
 #wechat span {
     font-size: 16px;
-    position: absolute;
-    top: 136px;
-    left: 50px;
     padding-left: 10px;
     width: 100%;
     /*content: "\5FAE\4FE1";*/
@@ -143,7 +136,7 @@
 }
 
 .share{
-    margin-bottom: 3px;
+    margin-bottom: 8px;
 }
 
 #qrcode-content {

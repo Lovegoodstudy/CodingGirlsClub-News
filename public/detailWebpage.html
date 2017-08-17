@@ -2,12 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="site" content="CodingGrilsClub">
     <title>查看文章</title>
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="./css/detailWebpage.css">
+    <link rel="stylesheet" href="../node_modules/social-share.js/dist/css/share.min.css">
+    <script src="../node_modules/social-share.js/dist/js/social-share.min.js"></script>
     <script src="./jquery-3.2.1.js"></script>
     <script src="./bootstrap/js/bootstrap.js"></script>
     <script src="js/login_out.js"></script>
+    <script>
+        function weibo() {
+            let url = window.location.href.replace("&","%26");
+            console.log(url);
+            let href = `http://service.weibo.com/share/share.php?title=${$("#title").text()}&url=${url}`;
+            window.open(href);
+        }
+        function qzone(){
+            let p = {
+                url: window.location.href.replace("&","%26"),
+                desc:"大家快来看，这篇文章很有趣哦！",/*默认分享理由(可选)*/
+                title:`${$("#title").text()}`,/*分享标题(可选)*/
+                site:'CodingGirlsClub',/*分享来源 如：腾讯网(可选)*/
+            };
+            http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http%3A%2F%2Flocalhost%3A63342%2FCodingGirlsClub-News%2Fpublic%2FdetailWebpage.html%3F_ijt%3D69acocjpvchfj14ld01kc530qf&title=%E6%9F%A5%E7%9C%8B%E6%96%87%E7%AB%A0&desc=&summary=&site=CodingGrilsClub
+            let href = `http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?title="${$("#title").text()}"&url=${window.location.href}&site="yes"&desc="helloworld"`;
+            window.open(href);
+        }
+        $(document).ready(function () {
+            $("#wechat").onmouseover(function () {
+                $("#qrcode").css("display","block");
+            })
+                .onmouseout(function () {
+                    $("#qrcode").css("display","none");
+                });
+        })
     <!--<script type="text/javascript" src="./js/detailWebpage.js"></script>-->
     <script>
         const BASE_URL = "http://localhost:8081";
@@ -41,11 +70,11 @@
                 }
             });
             $.ajax({
-                url: BASE_URL + `/${request.type}?count=1&sy=&sm=&ey=&em=`,
-                type: "GET",
-                crossDomain: true,
-                cache: false,
-                success: function (data) {
+                url: BASE_URL + `/${request.type}?count=1&year=&month=`,
+                type:"GET",
+                crossDomain:true,
+                cache:false,
+                success:function (data) {
                     $("#relativeNews").append(`<h3 style="margin-left: 20px">Top News</h3>`);
                     for (let value of data) {
                         let html = `
@@ -62,17 +91,27 @@
             $(window).bind("scroll", function () {
                 if ($(window).scrollTop() >= top) {
                     $("#relativeNews").css({
-                        "position": "fixed",
-                        "top": "-40px",
-                        "left": `${left - 50}px`
-                    })
+                        "position":"fixed",
+                        "top":"-40px",
+                        "left": `${left-50}px`
+                    });
+                    $(".share-tools").css({
+                        "position":"fixed",
+                        "top":"-40px",
+                        "left":0
+                    });
                 }
                 if ($(window).scrollTop() < top) {
                     $("#relativeNews").css({
                         "position": "",
                         "top": "",
                         "left": ""
-                    })
+                    });
+                    $(".share-tools").css({
+                        "position":"",
+                        "top":"",
+                        "left":""
+                    });
                 }
             });
         });
@@ -179,5 +218,30 @@
 
 </div>
 
+<!--share-->
+<div class="share-tools">
+    <div id="share-body">
+        <div id="share-head">
+            分享
+        </div>
+        <div id="share-content">
+            <div class="share" id="weibo">
+                <a href="#" onclick="weibo()"><img src="./image/weibo.png" alt="weibo"><span>微博</span></a>
+            </div>
+            <div class="share" id="qzone">
+                <a href="#" onclick="qzone()"><img src="./image/qzone.png" alt="qzone"><span>Qzone</span></a>
+            </div>
+            <div class="share" id="wechat">
+                <img src="./image/wechat.png" alt="wechat"><span>微信</span>
+            </div>
+        </div>
+        <div id="qrcode" style="display: none;">
+            <div id="qrcode-content">
+
+            </div>
+            <img src="" alt="logo" id="logo">
+        </div>
+    </div>
+</div>
 </body>
 </html>
