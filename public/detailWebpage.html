@@ -9,6 +9,7 @@
     <script src="./jquery-3.2.1.js"></script>
     <script src="./bootstrap/js/bootstrap.js"></script>
     <script src="js/login_out.js"></script>
+    <script type="text/javascript" src="jquery.qrcode.min.js"></script>
     <script>
         function weibo() {
             let url = window.location.href.replace("&","%26");
@@ -35,10 +36,15 @@
             window.open(href);
         }
         $(document).ready(function () {
-            $("#wechat").onmouseover(function () {
+            $("#qrcode").qrcode({
+                width : 130,
+                height : 130,
+                text : window.location.href,
+            });
+            $("#wechat").mouseover(function () {
                 $("#qrcode").css("display","block");
             })
-                .onmouseout(function () {
+                .mouseout(function () {
                     $("#qrcode").css("display","none");
                 });
         })
@@ -240,13 +246,8 @@
                 <img src="./image/wechat.png" alt="wechat"><span>微信</span>
             </div>
         </div>
-        <div id="qrcode" style="display: none;">
-            <div id="qrcode-content">
-
-            </div>
-            <img src="" alt="logo" id="logo">
-        </div>
     </div>
+    <div id="qrcode" style="display: none;"></div>
 </div>
 </body>
 </html>
